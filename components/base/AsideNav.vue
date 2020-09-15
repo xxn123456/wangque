@@ -79,7 +79,7 @@ export default {
                     }
                 }
                   .active{
-                background-color: #fff;
+                background-color: #f8f8f8;
                 color: #0088f5;
                 font-weight: bold;
             }

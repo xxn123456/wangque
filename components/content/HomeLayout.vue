@@ -6,11 +6,19 @@
        <div class="my-houre">
            <home-horse></home-horse>
        </div>
+       <div class="gogle-ad">
+            <home-ad></home-ad>
+       </div>
+       <div class="article-wrap">
+           <article-main></article-main>
+       </div>
     </div>
 </template>
 <script>
 import HomeSwiper from '@/components/content/compent/HomeSwiper.vue'
 import HomeHorse from '@/components/content/compent/HomeHorse.vue'
+import HomeAd from '@/components/ad/HomeAd.vue'
+import ArticleMain from '@/components/content/compent/Article.vue'
 export default {
     data(){
         return{
@@ -19,7 +27,9 @@ export default {
     },
     components:{
         HomeSwiper,
-        HomeHorse
+        HomeHorse,
+        HomeAd,
+        ArticleMain
     }
 }
 </script>
@@ -29,7 +39,8 @@ export default {
         height: 2600px;
         .my-swiper{
             width: 100%;
-            height: 230px;
+            height: 200px;
+            margin-bottom: 16px;
         }
         .my-houre{
             width: 100%;

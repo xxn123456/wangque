@@ -1,66 +1,73 @@
 <template>
   <div class="carousel-wrapper">
-    <div v-swiper:mySwiper="options">
-      <div class="swiper-wrapper">
-        <div v-for="i in mm" :key="i.index" class="img-wrapper swiper-slide">
-          {{i.name}}
-        </div>
-      </div>
-    </div>
+
+    <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
+            <swiper-slide class="swiper-item">
+                  <img src="@/static/layout/github-open.jpg" alt="">
+              </swiper-slide>
+            <swiper-slide class="swiper-item"> 
+                          111
+              </swiper-slide>
+           
+         </swiper>
+
+    1
+
+
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      mm:[
-        {
-          name:'hsh'
-        },
-         {
-          name:'yaang'
-        },
-         {
-          name:'dmw'
-        }
+  export default {
+    data() {
+      return {
+        mm: [{
+            name: 'hsh'
+          },
+          {
+            name: 'yaang'
+          },
+          {
+            name: 'dmw'
+          }
 
-      ],
-      options: {
-        slidesPerView: 1,
-        loop: true,
-         
-         autoplay: {
-                    delay: 2000,
-                    disableOnInteraction: false
-                },
+        ],
+        swiperOption: {
+          slidesPerView: 1,
+          loop: true,
+          observer: true, // 启动动态检查器(OB/观众/观看者)
+          observeParents: true, // 修改swiper的父元素时，自动初始化swiper
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction: false
+          },
+        }
       }
     }
   }
-}
+
 </script>
 
 <style lang="scss" scoped>
-.carousel-wrapper {
-  padding: 40px;
-  height: 300px;
-  width: 100%;
-  .swiper-wrapper{
-    height: 300px;
-    .swiper-slide {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .img-wrapper img {
-    margin: auto;
-    width: 200px;
-    height: 100px;
-    background-image: linear-gradient(gray 100%, transparent 0);
-  }
+  .carousel-wrapper {
+    width: 100%;
+
+    height: 100%;
+
+    .my-swiper{
+      width: 100%;
+      height: 200px;
+      .swiper-item>img{
+         width: 100%;
+      height: 200px;
+
+      }
+    }
+   
+
+
+
 
   }
-  
-}
+
 </style>
