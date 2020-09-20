@@ -19,6 +19,9 @@
       </div>
 
     </div>
+    <div class="bg">
+
+    </div>
 
   </div>
 </template>
@@ -46,6 +49,14 @@
 
 <style lang="scss" scoped>
   .home {
+    position: relative;
+    .bg{
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+        background-image: url('../static/layout/bg.gif');
+    }
     .head {
       position: fixed;
       top: 0;
@@ -66,9 +77,12 @@
     }
 
     .cont-wrap {
-      background-color: #eeeeee;
-      height:100vh;
-      overflow-y: auto;
+      width: 100%;
+    
+        height:auto;
+        background-color: #eeeeee;
+      
+      
     
       .cont {
         padding-top: 74px;
@@ -77,6 +91,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        
 
         .aside-nav {
           width: 160px;

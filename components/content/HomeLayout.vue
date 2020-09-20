@@ -41,10 +41,14 @@ export default {
             width: 100%;
             height: 200px;
             margin-bottom: 16px;
+          
+        
+    
         }
         .my-houre{
             width: 100%;
             height: 36px;
+            
         }
     }
 </style>

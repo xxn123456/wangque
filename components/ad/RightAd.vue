@@ -1,39 +1,22 @@
 <template>
-  <div class="carousel-wrapper">
-
+  <div class="ad">
     <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
             <swiper-slide class="swiper-item">
-        <img src="@/static/layout/github-open.jpg" alt="">
+                     <img src="@/static/layout/al.jpg" alt="">
               </swiper-slide>
             <swiper-slide class="swiper-item"> 
-        <img src="@/static\layout\niuyue.png" alt="">
-
+                        <img src="@/static/layout/al.jpg" alt="">
               </swiper-slide>
            
          </swiper>
-
-
-
   </div>
 </template>
-
 <script>
   export default {
     data() {
       return {
-        mm: [{
-            name: 'hsh'
-          },
-          {
-            name: 'yaang'
-          },
-          {
-            name: 'dmw'
-          }
-
-        ],
         swiperOption: {
-          slidesPerView: 1,
+          direction: 'vertical',
           loop: true,
           observer: true, // 启动动态检查器(OB/观众/观看者)
           observeParents: true, // 修改swiper的父元素时，自动初始化swiper
@@ -47,29 +30,26 @@
   }
 
 </script>
-
 <style lang="scss" scoped>
-  .carousel-wrapper {
-    width: 100%;
-
-    height: 200px;
-    overflow: hidden;
+  .ad {
+    width: 266px;
+   
+    height: 88px;
+  
+    background-color: #dcdcdc;
+  
+    color: #fff;
 
     .my-swiper {
       width: 100%;
-      height: 200px;
-
-      .swiper-item>img {
-        width: 100%;
-        height: 200px;
-
+      height: 100%;
+      .swiper-item{
+        img{
+          width: 266px;
+          height: 88px;
+        }
       }
     }
-
-
-
-
-
   }
 
 </style>
