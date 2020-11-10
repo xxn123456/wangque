@@ -1,6 +1,6 @@
 <template>
   <div class="calendar-box">
-    <!-- 年份 月份 -->
+  
     <div class="months">
       <span class="item arrow" @click="pickPrevMonth(currentYear, currentMonth)">❮</span>
       <span class="item year-month">
@@ -15,17 +15,17 @@
       </span>
       <span class="item arrow" @click="pickNextMonth(currentYear, currentMonth)">❯</span>
     </div>
-    <!-- 星期 -->
+   
     <ul class="weekdays">
       <li v-for="(day, index) in weeksText" :key="index">{{ day }}</li>
     </ul>
-    <!-- 日期 -->
+   
     <div v-if="!days.length" class="days-loading">
 
     </div>
     <ul v-else class="days">
       <li v-for="(day, index) in days" :key="index">
-        <!--本月-->
+      
         <span v-if="day.getMonth() + 1 != currentMonth" class="other-month">{{ day.getDate() }}</span>
         <span v-else class="item" :class="{
             'active':
@@ -33,7 +33,7 @@
               day.getMonth() == new Date().getMonth() &&
               day.getDate() == new Date().getDate()
           }">
-          <!--today-->
+       
           <nuxt-link :to="`/date/${ formatDate(day.getFullYear(), day.getMonth() + 1, day.getDate())}`">
             {{ day.getDate() }}</nuxt-link>
         </span>
@@ -123,10 +123,10 @@
 
 <style lang="scss" scoped>
   .calendar-box {
-    min-height: 17em;
+    min-height: 264px;
     margin-top: 15px;
     background-color: #fff;
-    padding: 1rem;
+    padding: 12px;
 
     >.months {
       padding: 0;
@@ -136,13 +136,13 @@
       justify-content: space-between;
 
       .item {
-        height: 2em;
-        line-height: 2em;
+        height: 32px;
+        line-height:32px;
         text-align: center;
 
         &.arrow {
-          width: 2em;
-          background-color: #dddddd;
+          width:32px;
+        
           //   @include background-transition();
           cursor: pointer;
 
@@ -162,30 +162,34 @@
       //   margin-bottom: $sm-gap;
 
       >li {
+        width: 40px;
+        height: 40px;
         display: block;
         float: left;
-        width: 14.28%;
         text-align: center;
       }
     }
 
     >.weekdays {
-      height: 2em;
-      line-height: 2em;
+      height: 40px;
+      line-height: 40px;
     }
 
     >.days-loading {
       width: 100%;
-      height: 14rem;
+      height: 224px;
     }
 
     >.days {
-      min-height: 10em;
+      min-height: 160px;
       margin-bottom: 0;
       position: relative;
 
       >li {
-        line-height: 2.5em;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        
 
         >.other-month {
           // opacity: .3;
@@ -196,10 +200,12 @@
         >.item {
           display: block;
           border-radius: 100%;
-          //   @include background-transition();
+         
+         
 
           >a {
             display: block;
+
 
             text-decoration: none;
             color: #000000;
@@ -211,6 +217,7 @@
           }
 
           &.active {
+           
             background-color: #dddddd;
             // background-color: $module-hover-bg;
           }

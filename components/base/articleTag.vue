@@ -7,9 +7,7 @@
       <div class="des">
         {{tag.value}}
       </div>
-
     </div>
-
   </div>
 </template>
 <script>

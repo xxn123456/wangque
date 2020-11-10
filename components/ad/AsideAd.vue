@@ -11,47 +11,39 @@
       <right-ad></right-ad>
     </div>
     <calendar></calendar>
-    <taobao-ad></taobao-ad>
-    <div class="art-tag-warp" style="position: sticky; top: 80px;">
-      <div class="ad-msg-sticky" v-if="scrollTop>1200">
+    <div class="art-tag-warp" style="position: sticky; top: 100px;">
+      <div class="ad-msg" v-show="scroolTop>='500'">
         <right-ad></right-ad>
       </div>
       <article-tag></article-tag>
     </div>
 
-
-
   </div>
 </template>
 <script>
-  import Search from '@/components/content/Search.vue'
-  import HotSome from '@/components/content/HotSome.vue'
+  import Search from '@/components/base/Search.vue'
+  import HotSome from '@/components/base/HotSome.vue'
   import RightAd from '@/components/ad/RightAd.vue'
   import calendar from '@/components/base/calendar.vue'
   import articleTag from '@/components/base/articleTag.vue'
-  import TaobaoAd from '@/components/ad/TaobaoAd.vue'
+   import {mapState} from 'vuex';
   export default {
     data() {
       return {
-        scrollTop:0
 
       }
+    },
+     computed: {
+      ...mapState({
+        scroolTop: state => state.blog.scrollTop 
+      })
     },
     components: {
       Search,
       HotSome,
       RightAd,
       calendar,
-      articleTag,
-      TaobaoAd
-    },
-    mounted() {
-      window.addEventListener('scroll', this.handleScroll);
-    },
-    methods: {
-      handleScroll() {
-        this.scrollTop=document.documentElement.scrollTop;
-      },
+      articleTag
     }
   }
 
@@ -81,11 +73,10 @@
 
       width: 266px;
 
-      .ad-msg-sticky {
+      .ad-msg {
         width: 226px;
         height: 90px;
-        margin-bottom: 10px;
-
+        margin-bottom: 15px;
       }
 
     }
