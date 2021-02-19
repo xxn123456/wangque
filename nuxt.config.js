@@ -4,7 +4,14 @@ export default {
    ** See https://nuxtjs.org/api/configuration-mode
    */
   mode: 'universal',
-  
+  router: {
+    base: '/wangque/'
+  },
+  server: {
+    port: 8080, // default: 3000
+
+  },
+
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -47,10 +54,13 @@ export default {
    */
   plugins: [
     '@/plugins/element-ui',
-     { src: '~plugins/swiper.js', ssr: false }
-    
+    {
+      src: '~plugins/swiper.js',
+      ssr: false
+    }
+
   ],
- 
+
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

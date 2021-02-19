@@ -5,7 +5,16 @@
                 <span>历经平凡,向死而生</span>
          </div>
          <div class="player">
-              音乐播放
+              <div class="handle-btns">
+                         <span class="iconfont icon-houtui Icon"></span>
+                          <span class="iconfont icon-zanting Icon"></span>
+                          <span class="iconfont icon-qianjin Icon"></span>
+                           <span class="iconfont icon-jingyin Icon"></span>
+              </div>
+              <div class="music-des">
+                  我曾把完整的镜子打碎
+
+              </div>
          </div>
     </div>
 </template>
@@ -46,6 +55,29 @@ export default {
         .player{
             width: 168px;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.2;
+            .handle-btns{
+                width: 100%;
+                height: 22px;
+                display: flex;
+                flex-direction: row;
+              
+                span{
+                 
+                    font-size: 12px;
+                    margin-right: 15px;
+                }
+            }
+           .music-des{
+               width: 100%;
+               height: 16px;
+               font-size: 12px;
+              
+           }
         }
     }
 </style>

@@ -28,6 +28,7 @@ export default {
 </script>
 <style lang="scss" scoped>
   .bg-cont {
+        margin: 0 auto;
 
         a {
           text-decoration: none;

@@ -12,20 +12,7 @@
             <aside-nav></aside-nav>
           </div>
           <div class="content">
-            <div class="artice">
-              <div class="my-swiper">
-                <home-swiper></home-swiper>
-              </div>
-              <div class="my-houre">
-                <home-horse></home-horse>
-              </div>
-              <div class="gogle-ad">
-                <home-ad></home-ad>
-              </div>
-              <div class="article-wrap">
-                <home-main></home-main>
-              </div>
-            </div>
+             <detail-main></detail-main>
           </div>
           <div class="aside-ad">
             <aside-ad></aside-ad>
@@ -44,12 +31,9 @@
   import AsideNav from '@/components/base/AsideNav.vue'
   import HeadMain from '@/components/base/HeadMain.vue'
   import AsideAd from '@/components/ad/AsideAd.vue'
-  import HomeSwiper from '@/components/base/HomeSwiper.vue'
-  import HomeHorse from '@/components/base/HomeHorse.vue'
-  import HomeAd from '@/components/ad/HomeAd.vue'
-  import HomeMain from '@/components/content/Home.vue'
   import footBar from '@/components/base/footBar.vue'
   import share from '@/components/concat/share.vue'
+  import DetailMain from '@/components/content/ArticleDetail.vue'
   import {
     mapActions
   } from 'vuex';
@@ -64,12 +48,9 @@
       AsideNav,
       HeadMain,
       AsideAd,
-      HomeSwiper,
-      HomeHorse,
-      HomeAd,
-      ArticleMain,
       footBar,
-      share
+      share,
+      DetailMain
     },
     mounted() {
       this.getScroll();

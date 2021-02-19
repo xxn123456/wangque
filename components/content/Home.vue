@@ -16,7 +16,7 @@
             <div class="other">
               <div class="other-lable">
                 <span class="iconfont icon-shijian" style="font-size:12px;"></span>
-                <span class="des">2020-09-07</span>
+                <span class="des">2021-02-07</span>
               </div>
               <div class="other-lable">
                 <span class="iconfont icon-kejianxianshi" style="font-size:12px;"></span>
@@ -40,9 +40,8 @@
         </div>
       </li>
       <li>
-        <div class="list-item-page">
-          <img class="prev" src="@/static/layout/up.png" alt="">
-          <img class="down" src="@/static/layout/down.png" alt="">
+        <div class="list-item">
+          收到
         </div>
       </li>
     </ul>
@@ -114,12 +113,13 @@
               justify-content: space-between;
 
               align-items: center;
-              font-size: 14px;
+              font-size: 12px;
               color: #555555;
 
               .other-label {
                 .des {
                   margin-left: 4px;
+                  font-size: 12px;
                 }
 
               }
@@ -129,26 +129,6 @@
             }
 
           }
-        }
-
-        .list-item-page {
-          margin-top: 15px;
-          margin-bottom: 15px;
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-
-          .prev {
-            width: calc(100% - 115px);
-            height: 40px;
-          }
-
-          .down {
-            width: 115px;
-            height: 40px;
-
-          }
-
         }
       }
     }

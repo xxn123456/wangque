@@ -146,9 +146,7 @@
           //   @include background-transition();
           cursor: pointer;
 
-          &:hover {
-            // background-color: $module-hover-bg-darken-10;
-          }
+    
         }
       }
     }
@@ -211,10 +209,7 @@
             color: #000000;
           }
 
-          &:hover {
-
-            // background-color: $module-hover-bg-opacity-3;
-          }
+        
 
           &.active {
            

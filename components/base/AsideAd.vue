@@ -13,7 +13,7 @@
     <calendar></calendar>
     <taobao-ad></taobao-ad>
     <div class="art-tag-warp" style="position: sticky; top: 80px;">
-      <div class="ad-msg-sticky" v-if="scrollTop>1200">
+      <div class="ad-msg-sticky" v-if="400>scrollTop">
         <right-ad></right-ad>
       </div>
       <article-tag></article-tag>
