@@ -30,6 +30,10 @@
           <div class="aside-ad">
             <aside-ad></aside-ad>
           </div>
+          <div class="msg-btns">
+            <msg-to></msg-to>
+
+          </div>
         </div>
       </div>
       <div class="foot">
@@ -50,6 +54,7 @@
   import HomeMain from '@/components/content/Home.vue'
   import footBar from '@/components/base/footBar.vue'
   import share from '@/components/concat/share.vue'
+  import MsgTo from '@/components/base/MsgTo.vue'
   import {
     mapActions
   } from 'vuex';
@@ -67,9 +72,10 @@
       HomeSwiper,
       HomeHorse,
       HomeAd,
-      ArticleMain,
+      HomeMain,
       footBar,
-      share
+      share,
+      MsgTo
     },
     mounted() {
       this.getScroll();
@@ -166,6 +172,13 @@
 
         .aside-ad {
           width: 266px;
+        }
+        .msg-btns{
+          position: fixed;
+          margin-left: 1100px;
+          bottom: 180px;
+         
+         
         }
 
       }

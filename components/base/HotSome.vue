@@ -58,6 +58,7 @@
 
       height: 332px;
       padding-top: 8px;
+      font-weight: 500;
 
       ul {
         padding-left: 0px;
@@ -66,16 +67,16 @@
          
           
           list-style: none;
-          font-size: 13px;
+          font-size: 14px;
           padding-left: 12px;
           padding-right: 12px;
           padding-bottom: 7.4px;
 
           a {
               display: inline-block;
-                height: 26.6px;
+                height: 26px;
             text-decoration: none;
-            color: #555555;
+            color: #000;
             font-weight: normal;
 
             .hot {

@@ -1,16 +1,19 @@
 <template>
   <div class="carousel-wrapper">
+    
+      <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
+              <swiper-slide class="swiper-item">
+          <img src="@/static/layout/github-open.jpg" alt="">
+                </swiper-slide>
+              <swiper-slide class="swiper-item"> 
+          <img src="@/static\layout\niuyue.png" alt="">
 
-    <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
-            <swiper-slide class="swiper-item">
-        <img src="@/static/layout/github-open.jpg" alt="">
-              </swiper-slide>
-            <swiper-slide class="swiper-item"> 
-        <img src="@/static\layout\niuyue.png" alt="">
+                </swiper-slide>
+             
+           </swiper>
 
-              </swiper-slide>
-           
-         </swiper>
+
+
 
 
 
@@ -21,17 +24,6 @@
   export default {
     data() {
       return {
-        mm: [{
-            name: 'hsh'
-          },
-          {
-            name: 'yaang'
-          },
-          {
-            name: 'dmw'
-          }
-
-        ],
         swiperOption: {
           slidesPerView: 1,
           loop: true,

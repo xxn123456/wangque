@@ -52,7 +52,8 @@ export default {
     .nav{
         width: 160px;
         position: fixed;
-    
+        font-weight: 700;
+       
         ul{
             padding-left: 0px;
             li{
@@ -70,7 +71,7 @@ export default {
                     line-height: 42px;
                     margin-bottom: 8px;
                     text-decoration: none;
-                    color: #6d6d6d;
+                    color: #555555;
                     font-family:'normal-1';
 
                     .Icon{

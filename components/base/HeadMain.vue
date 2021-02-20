@@ -59,7 +59,7 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            opacity: 0.2;
+            opacity: 0.5;
             .handle-btns{
                 width: 100%;
                 height: 22px;

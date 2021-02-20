@@ -64,11 +64,13 @@
     width: auto;
     height: 252px;
     top: 128px;
-    left: 10px;
+    left: 2px;
     position: fixed;
     z-index: 100;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    opacity: 0.6;
     a {
       display: inline-block;
       width: 36px;
@@ -80,7 +82,7 @@
         display: inline-block;
         width: 100%;
         height: 100%;
-        font-size: 20px;
+        font-size: 16px;
         color: #555;
 
       }
