@@ -1,6 +1,6 @@
 <template>
     <div class="ad">
-        谷歌广告
+        <img src="@/static/layout/aly-ecs.png" alt="">
     </div>
 </template>
 <script>
@@ -18,5 +18,9 @@ export default {
         height: 130px;
         background-color: #f8f8f8;
         margin-top: 12px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
     }
 </style>

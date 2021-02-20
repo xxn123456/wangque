@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <client-only>
-      <div class="head">
+     <div class="head">
         <div class="head-cont">
           <head-main></head-main>
         </div>
@@ -14,8 +13,14 @@
           <div class="content">
              <detail-main></detail-main>
           </div>
+         
           <div class="aside-ad">
             <aside-ad></aside-ad>
+          </div>
+         
+          <div class="msg-btns">
+            <msg-to></msg-to>
+
           </div>
         </div>
       </div>
@@ -23,7 +28,6 @@
          <foot-bar></foot-bar>
       </div>
       <share></share>
-    </client-only>
     
   </div>
 </template>
@@ -34,6 +38,7 @@
   import footBar from '@/components/base/footBar.vue'
   import share from '@/components/concat/share.vue'
   import DetailMain from '@/components/content/ArticleDetail.vue'
+    import MsgTo from '@/components/base/MsgTo.vue'
   import {
     mapActions
   } from 'vuex';
@@ -50,7 +55,8 @@
       AsideAd,
       footBar,
       share,
-      DetailMain
+      DetailMain,
+      MsgTo 
     },
     mounted() {
       this.getScroll();
@@ -147,6 +153,13 @@
 
         .aside-ad {
           width: 266px;
+        }
+         .msg-btns{
+          position: fixed;
+          margin-left: 1100px;
+          bottom: 180px;
+         
+         
         }
 
       }

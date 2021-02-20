@@ -1,10 +1,13 @@
 <template>
     <div class="msg">
-           <span>1</span>
-           <span>2</span>
-           <span>3</span>
-           <span>4</span>
-           <span>5</span>
+         <span><span class="iconfont icon-dianying Icon"></span></span>
+        <span><span class="iconfont icon-danmu Icon"></span></span>
+          
+           <span><span class="iconfont icon-youjian Icon"></span></span>
+           <span><span class="iconfont icon-dingbu Icon"></span></span>
+            <span><span class="iconfont icon-xia1 Icon"></span></span>
+          
+           
     </div>
 </template>
 <script>
@@ -28,6 +31,7 @@ export default {
     span{
         width: 42px;
         height: 42px;
+        line-height: 42px;
     }
 }
 

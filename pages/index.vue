@@ -1,47 +1,49 @@
 <template>
   <div class="home">
-    <client-only>
-      <div class="head">
-        <div class="head-cont">
-          <head-main></head-main>
-        </div>
+    <div class="head">
+      <div class="head-cont">
+        <head-main></head-main>
       </div>
-      <div class="cont-wrap">
-        <div class="cont">
-          <div class="aside-nav">
-            <aside-nav></aside-nav>
-          </div>
-          <div class="content">
-            <div class="artice">
-              <div class="my-swiper">
-                <home-swiper></home-swiper>
-              </div>
-              <div class="my-houre">
-                <home-horse></home-horse>
-              </div>
-              <div class="gogle-ad">
-                <home-ad></home-ad>
-              </div>
-              <div class="article-wrap">
-                <home-main></home-main>
-              </div>
+    </div>
+    <div class="cont-wrap">
+      <div class="cont">
+        <div class="aside-nav">
+          <aside-nav></aside-nav>
+        </div>
+        <div class="content">
+          <div class="artice">
+
+            <div class="my-swiper">
+              <home-swiper></home-swiper>
+            </div>
+
+            <div class="my-houre">
+              <home-horse></home-horse>
+            </div>
+
+
+            <div class="gogle-ad">
+              <home-ad></home-ad>
+            </div>
+            <div class="article-wrap">
+              <home-main></home-main>
             </div>
           </div>
-          <div class="aside-ad">
-            <aside-ad></aside-ad>
-          </div>
-          <div class="msg-btns">
-            <msg-to></msg-to>
+        </div>
+        <div class="aside-ad">
+          <aside-ad></aside-ad>
+        </div>
+        <div class="msg-btns">
+          <msg-to></msg-to>
 
-          </div>
         </div>
       </div>
-      <div class="foot">
-         <foot-bar></foot-bar>
-      </div>
-      <share></share>
-    </client-only>
-    
+    </div>
+    <div class="foot">
+      <foot-bar></foot-bar>
+    </div>
+    <share></share>
+
   </div>
 </template>
 <script>
@@ -173,12 +175,13 @@
         .aside-ad {
           width: 266px;
         }
-        .msg-btns{
+
+        .msg-btns {
           position: fixed;
           margin-left: 1100px;
           bottom: 180px;
-         
-         
+
+
         }
 
       }
@@ -190,7 +193,7 @@
 
 
     .foot {
-    
+
       height: 70px;
       background-color: #fff;
       top: 0px;
@@ -200,7 +203,7 @@
       justify-content: center;
       align-items: center;
 
-    
+
 
 
     }

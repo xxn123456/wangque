@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <div class="title">
-      <span class="Icon">火</span>
+      <span class="Icon"> <span class="iconfont icon-huo Icon"></span></span>
       <span>群贤必至</span>
     </div>
     <div class="hot-article">
@@ -76,7 +76,7 @@
               display: inline-block;
                 height: 26px;
             text-decoration: none;
-            color: #000;
+            color: #555555;
             font-weight: normal;
 
             .hot {

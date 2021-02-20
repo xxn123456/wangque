@@ -21,7 +21,7 @@
 
     </div>
     <div class="detail-ad">
-      亚马逊广告
+       <img src="@/static/layout/xiaomi-11.png" alt="">
     </div>
     <div class="share">
       <a href="#" v-for="share in shares" :key="share.index">
@@ -207,7 +207,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .share {

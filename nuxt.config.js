@@ -5,7 +5,7 @@ export default {
    */
   mode: 'universal',
   router: {
-    base: '/wangque/'
+    base: '/'
   },
   server: {
     port: 8080, // default: 3000
@@ -22,7 +22,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: '忘却之都-博客',
     meta: [{
         charset: 'utf-8'
       },
@@ -39,7 +39,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicon.ico'
+      href: 'favicon.ico'
     }]
   },
   /*

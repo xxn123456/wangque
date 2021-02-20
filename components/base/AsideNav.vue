@@ -2,33 +2,49 @@
     <div class="nav">
         <ul>
             <li>
-               <a href="#" class="active"><span class="iconfont icon-shouye Icon"></span><span>主页</span></a>
+               <a href="#" class="active"><span class="iconfont icon-shouye Icon"></span><span>明殿</span></a>
             </li>
 
              <li>
-               <a href="#"><span class="iconfont icon-shouye Icon"></span><span>粉巷</span></a>
+               <a href="#"><span class="iconfont icon-xin Icon"></span><span>梨园</span></a>
             </li>
 
               <li>
-               <a href="#"><span class="iconfont icon-shouye Icon"></span><span>天涯</span></a>
+               <a href="#"><span class="iconfont icon-icon Icon"></span><span>狂浪生</span></a>
             </li>
              <li>
-               <a href="#"><span class="iconfont icon-shouye Icon"></span><span>天涯</span></a>
+               <a href="#"><span class="iconfont icon-cheliang Icon"></span><span>天涯</span></a>
             </li>
             <li>
-               <a href="#"><span class="iconfont icon-shouye Icon"></span><span>主页</span></a>
+               <a href="#"><span class="iconfont icon-taolun Icon"></span><span>树洞</span></a>
             </li>
 
              <li>
-               <a href="#"><span class="iconfont icon-shouye Icon"></span><span>粉巷</span></a>
+               <a href="#"><span class="iconfont icon-idea Icon"></span><span>向往</span></a>
             </li>
 
               <li>
-               <a href="#"><span class="iconfont icon-shouye Icon"></span><span>天涯</span></a>
+               <a href="#"><span class="iconfont icon-jihua Icon"></span><span>规划</span></a>
             </li>
              <li>
-               <a href="#"><span class="iconfont icon-shouye Icon"></span><span>天涯</span></a>
+               <a href="#"><span class="iconfont icon-daima Icon"></span><span>代码</span></a>
             </li>
+
+             <li>
+               <a href="#"><span class="iconfont icon-yishu Icon"></span><span>得道</span></a>
+            </li>
+
+           
+
+            <li>
+               <a href="#"><span class="iconfont icon-liuyanban-05 Icon"></span><span>留言板</span></a>
+            </li>
+
+            <li>
+               <a href="#"><span class="iconfont icon-houtai Icon"></span><span>站点后台</span></a>
+            </li>
+
+             
         </ul>
         <expend-link></expend-link>
     </div>
@@ -52,7 +68,7 @@ export default {
     .nav{
         width: 160px;
         position: fixed;
-        font-weight: 700;
+        font-weight: 600;
        
         ul{
             padding-left: 0px;

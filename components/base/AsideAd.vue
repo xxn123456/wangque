@@ -6,26 +6,33 @@
     <div class="hot-some">
       <hot-some></hot-some>
     </div>
+     
 
     <div class="ad-msg">
       <right-ad></right-ad>
     </div>
+     
     <calendar></calendar>
+     
     <taobao-ad></taobao-ad>
+    
     <div class="art-tag-warp" style="position: sticky; top: 80px;">
+       
       <div class="ad-msg-sticky" v-if="400>scrollTop">
         <right-ad></right-ad>
       </div>
+      
       <article-tag></article-tag>
     </div>
+    
 
 
 
   </div>
 </template>
 <script>
-  import Search from '@/components/content/Search.vue'
-  import HotSome from '@/components/content/HotSome.vue'
+  import Search from '@/components/base/Search.vue'
+  import HotSome from '@/components/base/HotSome.vue'
   import RightAd from '@/components/ad/RightAd.vue'
   import calendar from '@/components/base/calendar.vue'
   import articleTag from '@/components/base/articleTag.vue'

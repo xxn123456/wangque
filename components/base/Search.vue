@@ -5,7 +5,7 @@
       <button class="start">搜</button>
     </div>
 
-    <a href="#" class="go">all</a>
+    <a href="#" class="go"> <span class="iconfont icon-shijianzhou Icon"></span></a>
   </div>
 </template>
 <script>

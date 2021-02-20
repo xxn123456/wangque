@@ -1,6 +1,7 @@
 <template>
-  <div class="carousel-wrapper">
-    
+  <client-only>
+    <div class="carousel-wrapper">
+
       <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
               <swiper-slide class="swiper-item">
           <img src="@/static/layout/github-open.jpg" alt="">
@@ -9,15 +10,18 @@
           <img src="@/static\layout\niuyue.png" alt="">
 
                 </swiper-slide>
+        <div class="swiper-pagination"></div>
              
-           </swiper>
+           
+      </swiper>
 
 
 
 
 
 
-  </div>
+    </div>
+  </client-only>
 </template>
 
 <script>
@@ -33,6 +37,9 @@
             delay: 2000,
             disableOnInteraction: false
           },
+          pagination: {
+            el: '.swiper-pagination',
+          }
         }
       }
     }

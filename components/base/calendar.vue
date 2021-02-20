@@ -1,6 +1,6 @@
 <template>
   <div class="calendar-box">
-  
+
     <div class="months">
       <span class="item arrow" @click="pickPrevMonth(currentYear, currentMonth)">❮</span>
       <span class="item year-month">
@@ -15,17 +15,17 @@
       </span>
       <span class="item arrow" @click="pickNextMonth(currentYear, currentMonth)">❯</span>
     </div>
-   
+
     <ul class="weekdays">
       <li v-for="(day, index) in weeksText" :key="index">{{ day }}</li>
     </ul>
-   
+
     <div v-if="!days.length" class="days-loading">
 
     </div>
     <ul v-else class="days">
       <li v-for="(day, index) in days" :key="index">
-      
+
         <span v-if="day.getMonth() + 1 != currentMonth" class="other-month">{{ day.getDate() }}</span>
         <span v-else class="item" :class="{
             'active':
@@ -33,7 +33,7 @@
               day.getMonth() == new Date().getMonth() &&
               day.getDate() == new Date().getDate()
           }">
-       
+
           <nuxt-link :to="`/date/${ formatDate(day.getFullYear(), day.getMonth() + 1, day.getDate())}`">
             {{ day.getDate() }}</nuxt-link>
         </span>
@@ -134,19 +134,21 @@
       overflow: hidden;
       display: flex;
       justify-content: space-between;
+      color: #555555;
+      font-weight: 300;
 
       .item {
         height: 32px;
-        line-height:32px;
+        line-height: 32px;
         text-align: center;
 
         &.arrow {
-          width:32px;
-        
+          width: 32px;
+
           //   @include background-transition();
           cursor: pointer;
 
-    
+
         }
       }
     }
@@ -157,6 +159,8 @@
       padding: 0;
       margin: 0;
       overflow: hidden;
+      color: #555555;
+      font-weight: 500;
       //   margin-bottom: $sm-gap;
 
       >li {
@@ -187,7 +191,7 @@
         width: 40px;
         height: 40px;
         line-height: 40px;
-        
+
 
         >.other-month {
           // opacity: .3;
@@ -198,21 +202,22 @@
         >.item {
           display: block;
           border-radius: 100%;
-         
-         
+
+
 
           >a {
             display: block;
 
 
             text-decoration: none;
-            color: #000000;
+            color: #555555;
+            font-weight: 400;
           }
 
-        
+
 
           &.active {
-           
+
             background-color: #dddddd;
             // background-color: $module-hover-bg;
           }
