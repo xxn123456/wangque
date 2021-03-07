@@ -1,22 +1,37 @@
 <template>
-    <div class="ad">
-        谷歌广告
-    </div>
+  <div id="test">
+    <client-only>
+      <vue-baberrage :isShow="barrageIsShow" :barrageList="barrageList" :loop="barrageLoop">
+      </vue-baberrage>
+    </client-only>
+  </div>
 </template>
 <script>
-export default {
-    data(){
-        return{
+  export default {
+    data() {
+      return {
+        msg: 'Hello vue-baberrage',
+        barrageIsShow: true,
+        currentId: 0,
+        barrageLoop: false,
+        barrageList: []
+      }
+    },
+    mounted() {
+      setInterval(() => {
+        this.addToList();
+      }, 1000);
+    },
+    methods: {
+      addToList() {
+        this.barrageList.push({
+          id: ++this.currentId,
+          avatar: "./static/avatar.jpg",
+          msg: this.msg,
+          time: 5
+        })
+      }
+    }
+  }
 
-        }
-    }
-}
 </script>
-<style lang="scss" scoped>
-    .ad{
-        width: 100%;
-        height: 130px;
-        background-color: #f8f8f8;
-        margin-top: 12px;
-    }
-</style>

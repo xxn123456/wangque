@@ -57,7 +57,12 @@ export default {
     {
       src: '~plugins/swiper.js',
       ssr: false
-    }
+    },
+    {
+      src: '~/plugins/vue-baberrage.js',
+      ssr: false
+    },
+    
 
   ],
 
