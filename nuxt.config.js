@@ -5,13 +5,12 @@ export default {
    */
   mode: 'universal',
   router: {
-    base: '/'
+    base: './'
   },
   server: {
     port: 8080, // default: 3000
 
   },
-
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
