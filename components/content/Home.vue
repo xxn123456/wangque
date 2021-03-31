@@ -48,10 +48,31 @@
   </div>
 </template>
 <script>
+  import {
+    getBlog
+  } from '@/api/home.js'
+  import qs from 'query-string';
   export default {
     data() {
       return {
         articles: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+      }
+    },
+    mounted(){
+      this.get_Blog();
+    },
+    methods: {
+     get_Blog() {
+        let msg = qs.stringify({
+          currentPage: 1,
+          pageSize: 15,
+          categoryName: ""
+        })
+        getBlog(msg).then((res) => {
+          console.log("请求得到数据")
+
+        })
+
       }
     }
   }

@@ -12,7 +12,7 @@
         <li><a href="#"><span class="hot">4</span><span>基于nuxt实现的ssr应用</span></a></li>
         <li><a href="#"><span class="hot">5</span><span>基于nuxt实现的ssr应用</span></a></li>
 
-          <li><a href="#"><span class="hot">1</span><span>基于nuxt实现的ssr应用</span></a></li>
+        <li><a href="#"><span class="hot">1</span><span>基于nuxt实现的ssr应用</span></a></li>
         <li><a href="#"><span class="hot">2</span><span>基于nuxt实现的ssr应用</span></a></li>
         <li><a href="#"><span class="hot">3</span><span>基于nuxt实现的ssr应用</span></a></li>
         <li><a href="#"><span class="hot">4</span><span>基于nuxt实现的ssr应用</span></a></li>
@@ -22,9 +22,30 @@
   </div>
 </template>
 <script>
+  import {
+    getBlog
+  } from '@/api/home.js'
+  import qs from 'query-string';
   export default {
     data() {
       return {
+
+      }
+    },
+    mounted() {
+      this.get_Blog();
+    },
+    methods: {
+      get_Blog() {
+        let msg = qs.stringify({
+          currentPage: 1,
+          pageSize: 15,
+          categoryName: ""
+        })
+        getBlog(msg).then((res) => {
+          console.log("请求得到数据")
+
+        })
 
       }
     }
@@ -64,8 +85,8 @@
         padding-left: 0px;
 
         li {
-         
-          
+
+
           list-style: none;
           font-size: 14px;
           padding-left: 12px;
@@ -73,8 +94,8 @@
           padding-bottom: 7.4px;
 
           a {
-              display: inline-block;
-                height: 26px;
+            display: inline-block;
+            height: 26px;
             text-decoration: none;
             color: #555555;
             font-weight: normal;
