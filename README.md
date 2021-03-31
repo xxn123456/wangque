@@ -3,7 +3,15 @@
 
 > 简介 基于nuxt.js 开发 友好型seo 博客，随时分享你的兴趣，这里是一个树洞。成就最好的自己
 
-> 后续 搭建实时弹幕等，未来很长
+> 后续 搭建实时弹幕等，未来很长\
+
+线上预览地址
+
+``` js
+
+http://blog.shutiaogege.top/
+
+```
 
 > 相关 [忘却之都(nuxt 版)](https://github.com/xxn123456/wangque) [忘却之都(koa 服务版)] [忘却之都(vue 管理后台)](https://github.com/xxn123456/wangque-admin)(https://github.com/xxn123456/wangque-server)
 
