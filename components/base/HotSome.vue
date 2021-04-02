@@ -6,17 +6,11 @@
     </div>
     <div class="hot-article">
       <ul>
-        <li><a href="#"><span class="hot">1</span><span>基于nuxt实现的ssr应用</span></a></li>
-        <li><a href="#"><span class="hot">2</span><span>基于nuxt实现的ssr应用</span></a></li>
-        <li><a href="#"><span class="hot">3</span><span>基于nuxt实现的ssr应用</span></a></li>
-        <li><a href="#"><span class="hot">4</span><span>基于nuxt实现的ssr应用</span></a></li>
-        <li><a href="#"><span class="hot">5</span><span>基于nuxt实现的ssr应用</span></a></li>
-
-        <li><a href="#"><span class="hot">1</span><span>基于nuxt实现的ssr应用</span></a></li>
-        <li><a href="#"><span class="hot">2</span><span>基于nuxt实现的ssr应用</span></a></li>
-        <li><a href="#"><span class="hot">3</span><span>基于nuxt实现的ssr应用</span></a></li>
-        <li><a href="#"><span class="hot">4</span><span>基于nuxt实现的ssr应用</span></a></li>
-        <li><a href="#"><span class="hot">5</span><span>基于nuxt实现的ssr应用</span></a></li>
+        <li v-for="hot in hots" :key="hot.index">
+          <nuxt-link :to="'/detail?id='+hot.id">
+              <span class="hot">{{hot.id}}</span><span>{{hot.title}}</span>
+          </nuxt-link>
+        </li>
       </ul>
     </div>
   </div>
@@ -29,7 +23,7 @@
   export default {
     data() {
       return {
-
+         hots:[]
       }
     },
     mounted() {
@@ -43,6 +37,10 @@
           categoryName: ""
         })
         getBlog(msg).then((res) => {
+          let {code,data}=res;
+          if(code=="200"){
+            this.hots=data.rows;
+          }
           console.log("请求得到数据")
 
         })

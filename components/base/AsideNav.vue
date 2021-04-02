@@ -1,8 +1,13 @@
 <template>
   <div class="nav">
     <ul>
-      <li>
-        <a href="#" class="active"><span class="iconfont icon-shouye Icon"></span><span>明殿</span></a>
+
+      <li  v-for="(item,index) in cateNames" :key="item.id" @click="selectNav(item.id)">
+         <nuxt-link :to="item.leftNavUrl" @click="changeLeft(index)" :class="active==index?'active':''"><span class="iconfont Icon" :class="item.icon"></span><span>{{item.categoryName}}</span></nuxt-link>
+      </li>
+
+       <!-- <li>
+        <a href="#"><span class="iconfont icon-shouye Icon"></span><span>明殿</span></a>
       </li>
 
       <li>
@@ -42,7 +47,7 @@
 
       <li>
         <a href="#"><span class="iconfont icon-houtai Icon"></span><span>站点后台</span></a>
-      </li>
+      </li> -->
 
 
     </ul>
@@ -53,6 +58,8 @@
   import '@/assets/icon/iconfont.css'
   import '@/static/fonts/DinRegular.css'
   import ExpendLink from '@/components/base/ExpendLink.vue'
+  import {mapState,mapActions}from 'vuex'
+
   import {
     getCateName
   } from '@/api/home.js'
@@ -60,17 +67,25 @@
   export default {
     data() {
       return {
+        cateNames:[]
 
       }
+    },
+    computed:{
+      ...mapState('blog',{
+        active:state=>state.leftNav
+      }),
     },
     components: {
       ExpendLink
     },
     mounted(){
         this.get_CateName();
-
     },
     methods: {
+       ...mapActions({
+        setCateName: 'blog/setCateName', 
+      }),
       get_CateName() {
         let msg = qs.stringify({
           currentPage: 1,
@@ -78,9 +93,18 @@
           categoryName: ""
         })
         getCateName(msg).then((res) => {
-            console.log("请求得到数据")
+          let {code,articleType}= res;
 
+          if(code=="200"){
+            this.cateNames=articleType.rows
+          }
         })
+
+      },
+      selectNav(id){
+        this.setCateName(id);
+        
+
 
       }
     }

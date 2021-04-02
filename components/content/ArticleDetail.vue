@@ -4,19 +4,10 @@
       <div class="artcle-type">
         讨论
       </div>
-      <h2>实现基于 Nuxt.js 的 SSR 应用
+      <h2>{{blog.title}}
       </h2>
       <div class="detail-mian">
-        阿里的一道测试题（群里的小伙伴提供的），题目大概这样：
-
-
-        大概就是让写个简单的模板解析器，尝试了好多种解构的方法都没成功...
-
-        先思考，下面就是答案了！
-
-
-
-
+          {{blog.content}}
       </div>
 
     </div>
@@ -100,6 +91,15 @@
 </template>
 <script>
   export default {
+    props:{
+         blog:{
+           type:Object,
+           default:{
+             title:"文章标题",
+             content:""
+           }
+         }
+    },
     data() {
       return {
         shares: [{

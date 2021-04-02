@@ -81,10 +81,12 @@
     },
     mounted() {
       this.getScroll();
+      this.changeLeft(0);
     },
     methods: {
       ...mapActions({
-        setScrollTop: 'blog/setScrollTop'
+        setScrollTop: 'blog/setScrollTop',
+          changeLeft: 'blog/changeLeft'
       }),
       getScroll() {
         window.addEventListener('scroll', () => {

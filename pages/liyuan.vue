@@ -1,63 +1,70 @@
 <template>
   <div class="home">
-     <div class="head">
-        <div class="head-cont">
-          <head-main></head-main>
-        </div>
+    <div class="head">
+      <div class="head-cont">
+        <head-main></head-main>
       </div>
-      <div class="cont-wrap">
-        <div class="cont">
-          <div class="aside-nav">
-            <aside-nav></aside-nav>
-          </div>
-          <div class="content">
-             <detail-main :blog="blog"></detail-main>
-          </div>
-         
-          <div class="aside-ad">
-            <aside-ad></aside-ad>
-          </div>
-         
-          <div class="msg-btns">
-            <msg-to></msg-to>
+    </div>
+    <div class="cont-wrap">
+      <div class="cont">
+        <div class="aside-nav">
+          <aside-nav></aside-nav>
+        </div>
+        <div class="content">
+          <div class="artice">
 
+            <div class="my-swiper">
+              <home-swiper></home-swiper>
+            </div>
+
+            <div class="my-houre">
+              <home-horse></home-horse>
+            </div>
+
+
+            <div class="gogle-ad">
+              <home-ad></home-ad>
+            </div>
+            <div class="article-wrap">
+              <home-main></home-main>
+            </div>
           </div>
         </div>
+        <div class="aside-ad">
+          <aside-ad></aside-ad>
+        </div>
+        <div class="msg-btns">
+          <msg-to></msg-to>
+
+        </div>
       </div>
-      <div class="foot">
-         <foot-bar></foot-bar>
-      </div>
-      <share></share>
-    
+    </div>
+    <div class="foot">
+      <foot-bar></foot-bar>
+    </div>
+    <share></share>
+
   </div>
 </template>
 <script>
   import AsideNav from '@/components/base/AsideNav.vue'
   import HeadMain from '@/components/base/HeadMain.vue'
   import AsideAd from '@/components/ad/AsideAd.vue'
+  import HomeSwiper from '@/components/base/HomeSwiper.vue'
+  import HomeHorse from '@/components/base/HomeHorse.vue'
+  import HomeAd from '@/components/ad/HomeAd.vue'
+  import HomeMain from '@/components/content/Home.vue'
   import footBar from '@/components/base/footBar.vue'
   import share from '@/components/concat/share.vue'
-  import DetailMain from '@/components/content/ArticleDetail.vue'
   import MsgTo from '@/components/base/MsgTo.vue'
   import {
     mapActions
   } from 'vuex';
-
-  import {
-    getBlogDetail
-  } from '@/api/home.js'
-
-   import qs from 'query-string';
-
+  
   export default {
     data() {
       return {
-        canRun: true,
-        blogId:this.$route.query.id,
-        blog:{
-          title:"文章标题",
-          content:""
-        }
+        canRun: true
 
       }
     },
@@ -65,18 +72,22 @@
       AsideNav,
       HeadMain,
       AsideAd,
+      HomeSwiper,
+      HomeHorse,
+      HomeAd,
+      HomeMain,
       footBar,
       share,
-      DetailMain,
-      MsgTo 
+      MsgTo
     },
     mounted() {
       this.getScroll();
-      this.get_BlogDetail();
+      this.changeLeft(1);
     },
     methods: {
       ...mapActions({
-        setScrollTop: 'blog/setScrollTop'
+        setScrollTop: 'blog/setScrollTop',
+        changeLeft: 'blog/changeLeft'
       }),
       getScroll() {
         window.addEventListener('scroll', () => {
@@ -87,18 +98,6 @@
             this.setScrollTop(top);
             this.canRun = true;
           }, 500);
-        })
-      },
-      get_BlogDetail(){
-        let msg=qs.stringify({
-          id: this.blogId,
-        });
-        getBlogDetail(msg).then((res)=>{
-          let {code,data}=res;
-          if(code=="200"){
-            this.blog=data
-          }
-
         })
       }
     }
@@ -179,12 +178,13 @@
         .aside-ad {
           width: 266px;
         }
-         .msg-btns{
+
+        .msg-btns {
           position: fixed;
           margin-left: 1100px;
           bottom: 180px;
-         
-         
+
+
         }
 
       }
@@ -196,7 +196,7 @@
 
 
     .foot {
-    
+
       height: 70px;
       background-color: #fff;
       top: 0px;
@@ -206,7 +206,7 @@
       justify-content: center;
       align-items: center;
 
-    
+
 
 
     }

@@ -2,16 +2,17 @@
   <div class="article">
     <ul>
       <li v-for="item in articles" :key="item.index">
+        <nuxt-link :to="'/detail?id='+item.id" class="to-detail">
         <div class="list-item">
           <div class="pic">
-            <img src="@/static/layout/article-pic.png" alt="">
+            <img :src="item.book|handleImg" alt="">
           </div>
           <div class="cont">
             <div class="title">
-              收到
+              {{item.title}}
             </div>
             <div class="subTitle">
-              如果可以,你也可以种一颗种子,世界不会更糟
+              {{item.subTitle}}
             </div>
             <div class="other">
               <div class="other-lable">
@@ -38,12 +39,13 @@
             </div>
           </div>
         </div>
+        </nuxt-link>
       </li>
-      <li>
+      <!-- <li>
         <div class="list-item">
           收到
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>
@@ -51,24 +53,58 @@
   import {
     getBlog
   } from '@/api/home.js'
+  import {IMGURL} from '@/utils/webSet.js'
   import qs from 'query-string';
+
+  import {mapState}from 'vuex'
+
+
+  
   export default {
     data() {
       return {
-        articles: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+        articles: []
       }
+    },
+    computed:{
+      ...mapState({
+        cateNameId:state=>state.blog.cateNameId
+      }),
     },
     mounted(){
       this.get_Blog();
+    },
+    filters:{
+      handleImg(val){
+        return IMGURL + val
+      }
+
     },
     methods: {
      get_Blog() {
         let msg = qs.stringify({
           currentPage: 1,
           pageSize: 15,
-          categoryName: ""
+          categoryId:this.cateNameId
         })
         getBlog(msg).then((res) => {
+          let {code,data}=res;
+          if(code=="200"){
+              let blogs=data.rows;
+              blogs.forEach( (el,index)=> {
+                let new_subTitle= el.content.length>10? el.content.substring(0, 10):el.content
+
+                this.articles.push({
+                  id:el.id,
+                  title:el.title,
+                  book:el.book,
+                  subTitle:new_subTitle
+                })
+                
+              });
+           
+
+          }
           console.log("请求得到数据")
 
         })
@@ -87,8 +123,10 @@
 
       li {
         list-style: none;
-
-        .list-item {
+     
+        .to-detail{
+             text-decoration: none;
+            .list-item {
           width: 100%;
           height: 134px;
           display: flex;
@@ -112,6 +150,8 @@
               height: 32px;
               font-size: 14px;
               font-weight: bold;
+             color: #555555;
+
 
             }
 
@@ -151,6 +191,10 @@
 
           }
         }
+
+        }
+
+      
       }
     }
   }

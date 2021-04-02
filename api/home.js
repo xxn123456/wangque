@@ -27,3 +27,15 @@ export function getBlog(data) {
 }
 
 
+export function getBlogDetail(data) {
+  return request({
+    url: '/blog/findOne',
+    // 此处admin是代理
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    data
+  })
+}
+
