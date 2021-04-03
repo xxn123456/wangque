@@ -7,7 +7,7 @@
           <img src="@/static/layout/github-open.jpg" alt="">
                 </swiper-slide>
               <swiper-slide class="swiper-item"> 
-          <img src="@/static\layout\niuyue.png" alt="">
+          <img src="@/static/layout/niuyue.png" alt="">
 
                 </swiper-slide>
         <div class="swiper-pagination"></div>

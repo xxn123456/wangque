@@ -2,32 +2,42 @@ export default {
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
+   
    */
+  target: 'server',
   mode: 'universal',
+  env: {
+    NODE_ENV: process.env.NODE_ENV
+  },
   router: {
     base: '/'
   },
   server: {
     port: 8080, // default: 3000
-
+    host: '0.0.0.0'
   },
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'server',
+  
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
     title: '忘却之都-博客',
-    meta: [{
+    meta: [
+      {
         charset: 'utf-8'
       },
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
+      },
+      {
+        name: 'baidu-site-verification',
+        content: 'code-Dt2NssqXu2'
       },
       {
         hid: 'description',
@@ -52,7 +62,10 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '@/plugins/element-ui',
+    {
+      src: '~/plugins/element-ui',
+      ssr: false
+    },
     {
       src: '~plugins/swiper.js',
       ssr: false
