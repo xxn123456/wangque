@@ -39,3 +39,17 @@ export function getBlogDetail(data) {
   })
 }
 
+
+// 获取所有分页
+export function getCarousel(data) {
+  return request({
+    url: '/carousel/findAll',
+    // 此处admin是代理
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    data
+  })
+}
+

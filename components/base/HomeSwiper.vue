@@ -3,13 +3,10 @@
     <div class="carousel-wrapper">
 
       <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
-              <swiper-slide class="swiper-item">
-          <img src="@/static/layout/github-open.jpg" alt="">
+              <swiper-slide class="swiper-item" v-for="item in picList" :key="item.index">
+                         <img :src="item.pic|handleImg" alt="">
                 </swiper-slide>
-              <swiper-slide class="swiper-item"> 
-          <img src="@/static/layout/niuyue.png" alt="">
-
-                </swiper-slide>
+            
         <div class="swiper-pagination"></div>
              
            
@@ -25,9 +22,15 @@
 </template>
 
 <script>
+  import {
+    getCarousel
+  } from '@/api/home.js';
+  import qs from 'query-string';
+  import {IMGURL} from '@/utils/webSet.js'
   export default {
     data() {
       return {
+        picList:[],
         swiperOption: {
           slidesPerView: 1,
           loop: true,
@@ -41,6 +44,37 @@
             el: '.swiper-pagination',
           }
         }
+      }
+    },
+      filters:{
+      handleImg(val){
+        return IMGURL + val
+      }
+
+    },
+    mounted(){
+      this.get_Carousel();
+    },
+    
+    methods: {
+
+      get_Carousel() {
+        let msg = qs.stringify({
+          currentPage: 1,
+          pageSize: 5
+        });
+        getCarousel(msg).then((res) => {
+          let {
+            code,
+            data
+          } = res;
+          if (code == "200") {
+            this.picList=data.rows;
+           
+          }
+
+        })
+
       }
     }
   }
