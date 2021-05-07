@@ -67,6 +67,10 @@ export default {
       ssr: false
     },
     {
+      src: '~/plugins/mavon-editor',
+      ssr: false
+    },
+    {
       src: '~plugins/swiper.js',
       ssr: false
     },

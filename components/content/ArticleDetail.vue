@@ -7,12 +7,25 @@
       <h2>{{blog.title}}
       </h2>
       <div class="detail-mian">
-          {{blog.content}}
+        <client-only>
+
+           <mavon-editor v-model='blog.content'
+        codeStyle="tomorrow-night-eighties" :subfield="false" defaultOpen="preview" :toolbarsFlag="false" :boxShadow="false" previewBackground="#fff">
+      </mavon-editor>
+        </client-only>
+
+       
+          
       </div>
 
     </div>
     <div class="detail-ad">
+
+      
        <img src="@/static/layout/xiaomi-11.png" alt="">
+
+
+
     </div>
     <div class="share">
       <a href="#" v-for="share in shares" :key="share.index">
