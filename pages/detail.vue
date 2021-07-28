@@ -7,21 +7,7 @@
       </div>
       <div class="cont-wrap">
         <div class="cont">
-          <div class="aside-nav">
-            <aside-nav></aside-nav>
-          </div>
-          <div class="content">
-             <detail-main :blog="blog"></detail-main>
-          </div>
-         
-          <div class="aside-ad">
-            <aside-ad></aside-ad>
-          </div>
-         
-          <div class="msg-btns">
-            <msg-to></msg-to>
-
-          </div>
+           <detail-main :blog="blog"></detail-main>
         </div>
       </div>
       <div class="foot">

@@ -9,20 +9,20 @@
       <div class="detail-mian">
         <client-only>
 
-           <mavon-editor v-model='blog.content'
-        codeStyle="tomorrow-night-eighties" :subfield="false" defaultOpen="preview" :toolbarsFlag="false" :boxShadow="false" previewBackground="#fff">
-      </mavon-editor>
-        </client-only>
+          <mavon-editor v-model='blog.content' codeStyle="tomorrow-night-eighties" :subfield="false" :toolbarsFlag="false" :preview="true"
+            defaultOpen="preview" :boxShadow="false" previewBackground="#fff">
+          </mavon-editor>
+         </client-only>
 
-       
-          
+
+
       </div>
 
     </div>
     <div class="detail-ad">
 
-      
-       <img src="@/static/layout/xiaomi-11.png" alt="">
+
+      <img src="@/static/layout/xiaomi-11.png" alt="">
 
 
 
@@ -70,31 +70,28 @@
 
     </div>
     <div class="recom-article">
-             <div class="recom-item">
-                      <img src="@/static/layout/recomd.png" alt="">
-                      <span>寻求代码本质,还是流与形式</span>
-             </div>
-             <div class="recom-item">
-                      <img src="@/static/layout/recomd.png" alt="">
-                      <span>寻求代码本质,还是流与形式</span>
-             </div>
-             <div class="recom-item">
-                      <img src="@/static/layout/recomd.png" alt="">
-                      <span>寻求代码本质,还是流与形式</span>
-             </div>
-             <div class="recom-item">
-                      <img src="@/static/layout/recomd.png" alt="">
-                      <span>寻求代码本质,还是流与形式</span>
-             </div>
+      <div class="recom-item">
+        <img src="@/static/layout/recomd.png" alt="">
+        <span>寻求代码本质,还是流与形式</span>
+      </div>
+      <div class="recom-item">
+        <img src="@/static/layout/recomd.png" alt="">
+        <span>寻求代码本质,还是流与形式</span>
+      </div>
+      <div class="recom-item">
+        <img src="@/static/layout/recomd.png" alt="">
+        <span>寻求代码本质,还是流与形式</span>
+      </div>
+      <div class="recom-item">
+        <img src="@/static/layout/recomd.png" alt="">
+        <span>寻求代码本质,还是流与形式</span>
+      </div>
 
-              <div class="recom-item">
-                      <img src="@/static/layout/recomd.png" alt="">
-                      <span>寻求代码本质,还是流与形式</span>
-             </div>
-              <div class="recom-item">
-                      <img src="@/static/layout/recomd.png" alt="">
-                      <span>寻求代码本质,还是流与形式</span>
-             </div>
+      <div class="recom-item">
+        <img src="@/static/layout/recomd.png" alt="">
+        <span>寻求代码本质,还是流与形式</span>
+      </div>
+     
     </div>
 
 
@@ -104,14 +101,14 @@
 </template>
 <script>
   export default {
-    props:{
-         blog:{
-           type:Object,
-           default:{
-             title:"文章标题",
-             content:""
-           }
-         }
+    props: {
+      blog: {
+        type: Object,
+        default: {
+          title: "文章标题",
+          content: ""
+        }
+      }
     },
     data() {
       return {
@@ -221,7 +218,8 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      img{
+
+      img {
         width: 100%;
         height: 100%;
       }
@@ -305,21 +303,25 @@
         }
       }
     }
-    .recom-article{
+
+    .recom-article {
       width: 100%;
-      height: 260px;
+      height: 180px;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-around;
       padding: 2px;
       margin-top: 15px;
-      .recom-item{
+
+      .recom-item {
         width: 190px;
         height: 120px;
         display: flex;
         flex-direction: column;
         margin-right: 10px;
         margin-bottom: 10px;
-        span{
+
+        span {
           font-size: 12px;
           color: #555555;
           opacity: 0.9;
@@ -330,7 +332,8 @@
           text-align: center;
         }
       }
-      .recom-item:nth-of-type(3n){
+
+      .recom-item:nth-of-type(3n) {
         margin-right: 0px;
       }
     }

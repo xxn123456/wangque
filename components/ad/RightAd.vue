@@ -1,17 +1,17 @@
 <template>
-<client-only>
-  <div class="ad">
-    <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
-            <swiper-slide class="swiper-item">
-                     <img src="@/static/layout/al.jpg" alt="">
-              </swiper-slide>
-            <swiper-slide class="swiper-item"> 
-                        <img src="@/static/layout/jd.jpg" alt="">
-              </swiper-slide>
-           
-         </swiper>
-  </div>
-</client-only>
+  <client-only>
+    <div class="ad">
+      <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
+              <swiper-slide class="swiper-item">
+          <img src="@/static/layout/al.jpg" alt="">
+                </swiper-slide>
+              <swiper-slide class="swiper-item"> 
+          <img src="@/static/layout/jd.jpg" alt="">
+                </swiper-slide>
+             
+           </swiper>
+    </div>
+  </client-only>
 </template>
 <script>
   export default {
@@ -35,18 +35,19 @@
 <style lang="scss" scoped>
   .ad {
     width: 266px;
-   
+
     height: 88px;
-  
+
     background-color: #dcdcdc;
-  
+
     color: #fff;
 
     .my-swiper {
       width: 100%;
       height: 100%;
-      .swiper-item{
-        img{
+
+      .swiper-item {
+        img {
           width: 266px;
           height: 88px;
         }
