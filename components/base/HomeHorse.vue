@@ -40,9 +40,10 @@
     padding-right: 24px;
     height: 36px;
     line-height: 36px;
-    background-color: #dcdcdc;
+    background-color: #fff;
     font-size: 14px;
-    color: #fff;
+    color: #666666;
+    
 
     .my-swiper {
       width: 100%;

@@ -6,9 +6,9 @@
     </div>
     <div class="hot-article">
       <ul>
-        <li v-for="hot in hots" :key="hot.index">
+        <li v-for="(hot,index) in hots" :key="hot.index">
           <nuxt-link :to="'/detail?id='+hot.id">
-              <span class="hot">{{hot.id}}</span><span>{{hot.title}}</span>
+            <span class="hot">{{index+1}}</span><span>{{hot.title}}</span>
           </nuxt-link>
         </li>
       </ul>
@@ -23,7 +23,7 @@
   export default {
     data() {
       return {
-         hots:[]
+        hots: []
       }
     },
     mounted() {
@@ -37,9 +37,12 @@
           categoryName: ""
         })
         getBlog(msg).then((res) => {
-          let {code,data}=res;
-          if(code=="200"){
-            this.hots=data.rows;
+          let {
+            code,
+            data
+          } = res;
+          if (code == "200") {
+            this.hots = data.rows;
           }
           console.log("请求得到数据")
 
@@ -89,28 +92,55 @@
           font-size: 14px;
           padding-left: 12px;
           padding-right: 12px;
-          padding-bottom: 7.4px;
+          padding-bottom: 8px;
 
           a {
             display: inline-block;
             height: 26px;
             text-decoration: none;
-            color: #555555;
+            color: #333333;
             font-weight: normal;
 
             .hot {
               display: inline-block;
               width: 20px;
+              font-size: 12px;
               height: 20px;
               line-height: 20px;
               text-align: center;
-              font-weight: bold;
-              background-color: #7cc0f7;
-              color: #fff;
+
+              background-color: #e8e8e8;
+              color: #666666;
+
+
               margin-right: 10px;
             }
+
           }
         }
+
+        li:first-of-type {
+          .hot {
+            background-color: #7cc0f7;
+            color: #fff;
+          }
+
+        }
+
+        li:nth-of-type(2) {
+          .hot {
+            background-color: rgba(76, 175, 80, .6);
+            color: #fff;
+          }
+
+
+        }
+         li:nth-of-type(3){
+                 .hot{
+                   background-color: rgba(255,87,34,.6);
+                   color: #fff;
+                 }
+      }
       }
     }
   }

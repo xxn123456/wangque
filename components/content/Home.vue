@@ -41,11 +41,7 @@
           </div>
         </a>
       </li>
-      <!-- <li>
-        <div class="list-item">
-          收到
-        </div>
-      </li> -->
+    
     </ul>
   </div>
 </template>
@@ -178,8 +174,8 @@
                 width: 100%;
                 height: 32px;
                 font-size: 14px;
-                font-weight: bold;
-                color: #555555;
+                font-weight: 600;
+                color: #333333;
 
 
               }
@@ -204,7 +200,7 @@
 
                 align-items: center;
                 font-size: 12px;
-                color: #555555;
+                color: #666666;
 
                 .other-label {
                   .des {
