@@ -13,18 +13,7 @@
         <div class="content">
           <div class="artice">
 
-            <div class="my-swiper">
-              <home-swiper></home-swiper>
-            </div>
-
-            <div class="my-houre">
-              <home-horse></home-horse>
-            </div>
-
-
-            <div class="gogle-ad">
-              <home-ad></home-ad>
-            </div>
+            
             <div class="article-wrap">
               <home-main></home-main>
             </div>
@@ -53,7 +42,7 @@
   import HomeSwiper from '@/components/base/HomeSwiper.vue'
   import HomeHorse from '@/components/base/HomeHorse.vue'
   import HomeAd from '@/components/ad/HomeAd.vue'
-  import HomeMain from '@/components/content/Home.vue'
+  import HomeMain from '@/components/content/SearchMain.vue'
   import footBar from '@/components/base/footBar.vue'
   import share from '@/components/concat/share.vue'
   import MsgTo from '@/components/base/MsgTo.vue'
@@ -79,19 +68,17 @@
       share,
       MsgTo
     },
-    created(){
-      this.setCateid(6);
-    },
+   
     mounted() {
       this.getScroll();
-      this.changeLeft(5);
-      
+      this.changeLeft(0);
+     
     },
     methods: {
       ...mapActions({
         setScrollTop: 'blog/setScrollTop',
           changeLeft: 'blog/changeLeft',
-          setCateid:"blog/setCateName"
+           setCateid:"blog/setCateName"
       }),
       getScroll() {
         window.addEventListener('scroll', () => {

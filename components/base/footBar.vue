@@ -1,7 +1,7 @@
 <template>
    <div class="bg-cont">
           <nuxt-link to="#">
-            陕ICP备13004859号-2
+            浙ICP备13004859号
           </nuxt-link>
           <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
           <nuxt-link to="#">

@@ -87,10 +87,7 @@
         <span>寻求代码本质,还是流与形式</span>
       </div>
 
-      <div class="recom-item">
-        <img src="@/static/layout/recomd.png" alt="">
-        <span>寻求代码本质,还是流与形式</span>
-      </div>
+     
      
     </div>
 

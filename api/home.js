@@ -53,3 +53,18 @@ export function getCarousel(data) {
   })
 }
 
+// 模糊搜索文章
+
+export function searchBlog(data) {
+  return request({
+    url: '/blog/search',
+    // 此处admin是代理
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    data
+  })
+}
+
+

@@ -159,8 +159,8 @@
       padding: 0;
       margin: 0;
       overflow: hidden;
-      color: #555555;
-      font-weight: 500;
+      color: #333333;
+     
       //   margin-bottom: $sm-gap;
 
       >li {

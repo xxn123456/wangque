@@ -2,16 +2,21 @@
   <div class="other-link">
     <ul>
       <li>
-        <a href="#"><span class="iconfont icon-shouye Icon"></span><span>四方馆</span><span class="state">hot</span></a>
+        <a href="#" class="link" style=" color: #fd7515;"><span
+            class="iconfont icon-shouye Icon"></span><span>友情链接</span><span class="state">hot</span></a>
       </li>
 
       <li>
-        <a href="#"><span class="iconfont icon-shouye Icon"></span><span>云上爆款</span></a>
+        <nuxt-link to="/pageUpdate" style=" color: #e1251b;">
+          <span class="iconfont icon-shouye Icon"></span><span>更新日志</span>
+        </nuxt-link>
       </li>
 
-     
+
       <li>
-        <a href="#"><span class="iconfont icon-shouye Icon"></span><span>博客后台</span></a>
+
+        <a href="http://shutiaogege.top/wangque_admin/#/login" target="_blank" class="link" style="color: #0088f5;"><span
+            class="iconfont icon-shouye Icon"></span><span>博客后台</span></a>
       </li>
 
     </ul>
@@ -51,6 +56,7 @@
           text-decoration: none;
 
           font-weight: 600;
+
           .Icon {
             margin-right: 12px;
             margin-left: 30px;
@@ -63,33 +69,13 @@
 
         }
 
-      
+
 
       }
 
-        li:first-of-type {
-            a{
-                 color: #fd7515;
 
-            }
-         
 
-        }
 
-        li:nth-last-of-type(2) {
-            a{
-                color: #e1251b;
-
-            }
-          
-
-        }
-
-        li:nth-last-of-type(3) {
-          a{
-               color: #0088f5;
-          }
-        }
 
     }
   }

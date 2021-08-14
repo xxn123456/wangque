@@ -1,9 +1,9 @@
 <template>
   <div class="art-tags">
     <div class="art-tag" v-for="tag in artTags" :key="tag.index">
-      <div class="pic">
-        <span class="iconfont icon-shouye"></span>
-      </div>
+      <!-- <div class="pic">
+        <span class="iconfont icon-daima"></span>
+      </div> -->
       <div class="des">
         {{tag.value}}
       </div>
@@ -15,19 +15,33 @@
     data() {
       return {
         artTags: [{
-            value: "数学"
-          },
-          {
-            value: "计算机"
-          },
-          {
-            value: "诗和远方"
-          },
-          {
-            value: "网络"
+            value: "css"
           },
           {
             value: "javascript"
+          },
+          {
+            value: "vue"
+          },
+          {
+            value: "react"
+          },
+          {
+            value: "uniapp"
+          },
+          {
+            value: "小程序"
+          },
+          {
+            value: "mysql"
+          }, {
+            value: "mongodb"
+          },
+          {
+            value: "ecs"
+          },
+          {
+            value: "docker"
           }
         ]
       }
@@ -43,11 +57,11 @@
     background-color: #fff;
 
     .art-tag {
-        display: inline-flex;
-     
-         margin-bottom: 10px;
-         margin-right: 8px;
-      
+      display: inline-flex;
+
+      margin-bottom: 10px;
+      margin-right: 8px;
+
 
       .pic {
         width: 24px;
@@ -57,19 +71,19 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-       
-    
+
+
       }
 
       .des {
         font-size: 12px;
         height: 24px;
         line-height: 24px;
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
         background-color: #dfdfdf;
-      
-      
+
+
 
       }
 

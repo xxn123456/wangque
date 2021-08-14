@@ -3,11 +3,11 @@
   <div class="ad">
     <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
             <swiper-slide class="swiper-item">
-        我想去纽约
+                  我在村里
               </swiper-slide>
             <swiper-slide class="swiper-item"> 
 
-        我想说的都在推特
+                 我想说的都在推特
               </swiper-slide>
            
          </swiper>
@@ -36,18 +36,22 @@
 <style lang="scss" scoped>
   .ad {
     width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
-    height: 36px;
-    line-height: 36px;
+    padding-left: 36px;
+    padding-right: 36px;
+    height: 40px;
+    line-height: 40px;
     background-color: #fff;
     font-size: 14px;
     color: #666666;
+    background-image: url('/layout/up.png');
+    background-repeat: no-repeat;
     
 
     .my-swiper {
-      width: 100%;
-      height: 24px;
+      width: calc(100% - 10px);
+      height: 40px;
+      margin-left: 8px;
+
     }
   }
 

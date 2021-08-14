@@ -79,14 +79,19 @@
       share,
       MsgTo
     },
+    created(){
+       this.setCateid(8);
+    },
     mounted() {
       this.getScroll();
       this.changeLeft(7);
+      
     },
     methods: {
       ...mapActions({
         setScrollTop: 'blog/setScrollTop',
-          changeLeft: 'blog/changeLeft'
+          changeLeft: 'blog/changeLeft',
+           setCateid:"blog/setCateName"
       }),
       getScroll() {
         window.addEventListener('scroll', () => {

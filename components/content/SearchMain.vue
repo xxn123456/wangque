@@ -1,15 +1,15 @@
 <template>
   <div class="article">
 
-    <div v-if="emty==true" class="emty">
-      ╭(●｀∀´●)╯,暂无数据
+    <div v-if="emty" class="emty">
+      暂无数据
     </div>
     <ul v-else>
       <li v-for="item in articles" :key="item.index">
         <a @click="to_detail(item)" class="to-detail">
           <div class="list-item">
             <div class="pic">
-              <img :src="item.book" alt="">
+              <img :src="item.book|handleImg" alt="">
             </div>
             <div class="cont">
               <div class="title">
@@ -49,11 +49,11 @@
     </ul>
 
 
-    <div class="page-nav" v-show="emty==false">
+    <!-- <div class="page-nav">
       <div class="prev">
         <span class="go-nav">
 
-          共计：{{this.total}}条,第{{this.page}}页,页码15
+          共计：20条,第1页,页码20
 
         </span>
         <span @click="prev">上一页</span>
@@ -63,12 +63,12 @@
         下一页
 
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
   import {
-    getCateName
+    searchBlog
   } from '@/api/home.js'
   import {
     IMGURL
@@ -86,9 +86,7 @@
       return {
         articles: [],
         page: 1,
-        emty: true,
-        total:null,
-        pageSize:15
+        emty: false
       }
     },
     computed: {
@@ -96,21 +94,24 @@
         cateNameId: state => state.blog.cateNameId
       }),
     },
-    mounted() {
-      this.get_Blog();
 
-    },
     filters: {
       handleImg(val) {
         return IMGURL + val
       }
 
     },
+    mounted() {
+      this.get_Blog()
+    },
     methods: {
       prev() {
 
-        this.page -= 1;
+        if (this.page < 0) {
 
+          this.page -= 1;
+
+        }
 
         this.get_Blog();
 
@@ -121,7 +122,10 @@
       },
       next() {
 
-        this.page += 1;
+        if (this.page >= 0) {
+          this.page += 1;
+        }
+
         this.get_Blog();
 
 
@@ -140,68 +144,53 @@
         let msg = qs.stringify({
           currentPage: this.page,
           pageSize: 15,
-          categoryNum: this.cateNameId
+          title: this.$route.query.about
         });
 
 
-        getCateName(msg).then((res) => {
-          let {
-            code,
-            articleType
-          } = res;
-          if (code == "200") {
+        searchBlog(msg).then((res) => {
+            let {
+              code,
+              data
+            } = res;
+            if (code == "200") {
+
+                console.log("请求的数据",data)
 
 
 
-            
+              let blogs = data;
 
 
 
 
-            if (articleType.rows.length != 0) {
+              if (blogs.length != 0) {
 
-               
+                this.articles = blogs.map((el, index) => {
+                  let new_subTitle = el.content.length > 100 ? el.content.substring(0, 100) : el.content;
 
-              
+                  let new_categname;
 
-              let blogs = articleType.rows[0].blogs;
+                  if (el.articleType == null) {
+                    new_categname = "暂未归类"
+                  } else {
+                    new_categname = el.articleType.categoryName;
 
+                  }
+                  return {
+                    id: el.id,
+                    title: el.title,
+                    book: el.book,
+                    subTitle: new_subTitle,
+                    createdAt: el.createdAt,
+                    visitNum: el.visitNum,
+                    categoryName: new_categname
 
-
-              this.total=articleType.count;
-
-
-              console.log("执行",blogs);
-
-              this.articles = blogs.map((el, index) => {
-                let new_subTitle = el.content.length > 100 ? el.content.substring(0, 100) : el.content;
-
-                let new_categname;
-
-                if (el.articleType == null) {
-                  new_categname = "暂未归类"
-                } else {
-                  new_categname = el.articleType.categoryName;
-
-                }
-                return {
-                  id: el.id,
-                  title: el.title,
-                  book: el.book,
-                  subTitle: new_subTitle,
-                  createdAt: el.createdAt,
-                  visitNum: el.visitNum,
-                  categoryName: new_categname
-
-                }
+                  }
 
 
 
-              });
-
-              if(this.articles.length>0){
-                this.emty = false;
-              }
+                });
 
 
 
@@ -218,8 +207,8 @@
 
         })
 
-      }
     }
+  }
   }
 
 </script>
@@ -237,7 +226,6 @@
       align-items: center;
       background-color: #fff;
       margin-top: 10px;
-      color: #666666;
     }
 
     ul {
@@ -263,13 +251,6 @@
               width: 166px;
               height: 117px;
               margin-right: 10px;
-              overflow: hidden;
-              img{
-                 width: 166px;
-                 height: 117px;
-                 border-radius: 4px;
-                
-              }
             }
 
             .cont {

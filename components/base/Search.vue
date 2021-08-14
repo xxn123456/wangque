@@ -1,8 +1,8 @@
 <template>
   <div class="search">
     <div class="start-group">
-      <input type="text" class="start-input" placeholder="向外探索,向内觉知">
-      <button class="start">搜</button>
+      <input type="text" class="start-input" placeholder="向外探索,向内觉知" v-model="title">
+      <button class="start" @click="to_search">搜</button>
     </div>
 
     <a href="#" class="go"> <span class="iconfont icon-shijianzhou Icon"></span></a>
@@ -12,8 +12,17 @@
   export default {
     data() {
       return {
-
+         title:""
       }
+    },
+    methods:{
+      to_search() {
+        let openUrl = this.$router.resolve({
+          path: '/search?about=' + this.title
+        });
+        window.open(openUrl.href, '_blank');
+
+      },
     }
   }
 
@@ -42,7 +51,9 @@
             border: 0px;
             background-color: #dfdfdf;
             color: #757575;
+            outline: none;
          }
+         
          .start{
              width: 30px;
              height: 30px;

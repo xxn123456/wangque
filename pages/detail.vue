@@ -126,7 +126,7 @@
 
       .cont {
         padding-top: 74px;
-        width: 1050px;
+        width: 900px;
         margin: 0 auto;
         display: flex;
         flex-direction: row;

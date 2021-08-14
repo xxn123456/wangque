@@ -4,7 +4,7 @@
 
       <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
               <swiper-slide class="swiper-item" v-for="item in picList" :key="item.index">
-                         <img :src="item.pic|handleImg" alt="">
+                         <img :src="item.pic" alt="">
                 </swiper-slide>
             
         <div class="swiper-pagination"></div>
