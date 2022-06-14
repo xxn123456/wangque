@@ -3,11 +3,11 @@
   <div class="ad">
     <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
             <swiper-slide class="swiper-item">
-                  我在村里
+                  努力！奋斗！
               </swiper-slide>
             <swiper-slide class="swiper-item"> 
 
-                 我想说的都在推特
+                 另一个我
               </swiper-slide>
            
          </swiper>

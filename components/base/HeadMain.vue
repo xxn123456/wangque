@@ -2,7 +2,7 @@
     <div class="head-cont">
          <div class="logo">
                 <img src="@/static/layout/logo.svg" alt="">
-                <span>历经平凡,向死而生</span>
+                <span>年轻依旧</span>
          </div>
          <div class="player">
               <div class="handle-btns">
@@ -12,8 +12,7 @@
                            <span class="iconfont icon-jingyin Icon"></span>
               </div>
               <div class="music-des">
-                  我曾把完整的镜子打碎
-
+                  我也幻想改变过去的遗憾
               </div>
          </div>
     </div>
@@ -59,7 +58,9 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            opacity: 0.5;
+            color: #333333;
+            opacity: 0.8;
+            cursor: pointer;
             .handle-btns{
                 width: 100%;
                 height: 22px;

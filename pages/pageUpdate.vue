@@ -33,15 +33,6 @@
   import footBar from '@/components/base/footBar.vue'
 
   import MsgTo from '@/components/base/MsgTo.vue'
-  import {
-    mapActions
-  } from 'vuex';
-
-  import {
-    getBlogDetail
-  } from '@/api/home.js'
-
-  import qs from 'query-string';
 
   export default {
     data() {

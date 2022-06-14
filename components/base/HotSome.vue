@@ -33,7 +33,7 @@
       get_Blog() {
         let msg = qs.stringify({
           currentPage: 1,
-          pageSize: 15,
+          pageSize: 10,
           categoryName: ""
         })
         getBlog(msg).then((res) => {
@@ -42,9 +42,10 @@
             data
           } = res;
           if (code == "200") {
-            this.hots = data.rows;
+            this.hots = data.rows.slice(0,9);
+            
           }
-          console.log("请求得到数据")
+          
 
         })
 

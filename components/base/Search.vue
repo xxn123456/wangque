@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <div class="start-group">
-      <input type="text" class="start-input" placeholder="向外探索,向内觉知" v-model="title">
+      <input type="text" class="start-input" placeholder="向外探索,向内觉知" v-model="title" @keyup.enter="to_search">
       <button class="start" @click="to_search">搜</button>
     </div>
 
@@ -43,6 +43,7 @@
          height: 30px;
          display: flex;
          flex-direction: row;
+         border-radius: 4px;
 
          .start-input{
             width: 170px;
@@ -60,6 +61,7 @@
              padding: 0px;
             border: 0px;
             background-color: #c3c3c3;
+            cursor: pointer;
          }
     }
     .go{

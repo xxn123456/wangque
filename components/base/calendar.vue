@@ -134,13 +134,12 @@
       overflow: hidden;
       display: flex;
       justify-content: space-between;
-      color: #555555;
-      font-weight: 300;
-
+      color: #333;
       .item {
         height: 32px;
         line-height: 32px;
         text-align: center;
+        font-size: 12px;
 
         &.arrow {
           width: 32px;

@@ -70,8 +70,8 @@
 
     .art-tag-warp {
       margin-top: 15px;
-
       width: 266px;
+      color: #333333;
 
       .ad-msg {
         width: 226px;

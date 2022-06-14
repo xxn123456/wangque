@@ -2,11 +2,12 @@
   <div class="nav">
     <ul>
 
-      <li  v-for="(item,index) in cateNames" :key="item.id" @click="selectNav(item.id)">
-         <nuxt-link :to="item.leftNavUrl" @click="changeLeft(index)" :class="active==index?'active':''"><span class="iconfont Icon" :class="item.icon"></span><span>{{item.categoryName}}</span></nuxt-link>
+      <li v-for="item in cateNames" :key="item.id">
+        <nuxt-link :to="item.leftNavUrl" :class="active==item.id?'active':''"><span
+            class="iconfont Icon" :class="item.icon"></span><span>{{item.categoryName}}</span></nuxt-link>
       </li>
 
-    
+
 
 
     </ul>
@@ -17,8 +18,12 @@
   import '@/assets/icon/iconfont.css'
   import '@/static/fonts/DinRegular.css'
   import ExpendLink from '@/components/base/ExpendLink.vue'
-  import {mapState,mapActions}from 'vuex'
-
+  import {
+    mapState,
+    mapActions,
+    mapGetters,
+    mapMutations
+  } from 'vuex'
   import {
     getCateName
   } from '@/api/home.js'
@@ -26,44 +31,46 @@
   export default {
     data() {
       return {
-        cateNames:[]
+        cateNames: []
 
       }
     },
-    computed:{
-      ...mapState('blog',{
-        active:state=>state.leftNav
-      }),
+    computed: {
+      ...mapState('blog', {
+        active: state => state.leftNav
+      })
     },
     components: {
       ExpendLink
     },
     mounted(){
-        this.get_CateName();
+      this.get_CateName();
     },
     methods: {
-       ...mapActions({
-        setCateName: 'blog/setCateName', 
+      ...mapActions({
+        setCateName: 'blog/setCateName',
+        setLeft:'blog/changeLeft'
       }),
+      ...mapMutations(
+        {
+          setMenu:'blog/SETMENUN'
+        }
+      ),
       get_CateName() {
         let msg = qs.stringify({
           currentPage: 1,
-          pageSize:20,
+          pageSize: 20,
           categoryName: ""
         })
         getCateName(msg).then((res) => {
-          let {code,articleType}= res;
-
-          if(code=="200"){
-            this.cateNames=articleType.rows
+          let {
+            code,
+            articleType
+          } = res;
+          if (code == "200") {
+            this.cateNames = articleType.rows
           }
         })
-
-      },
-      selectNav(id){
-        this.setCateName(id);
-        
-
 
       }
     }
@@ -74,7 +81,7 @@
   .nav {
     width: 160px;
     position: fixed;
-   
+
     ul {
       padding-left: 0px;
 
@@ -95,7 +102,7 @@
           margin-bottom: 8px;
           text-decoration: none;
           color: #333333;
-         
+
 
           .Icon {
             margin-right: 12px;
@@ -104,7 +111,7 @@
         }
 
         .active {
-          background-color: #f8f8f8;
+          background-color: #fff;
           color: #0088f5;
         }
       }

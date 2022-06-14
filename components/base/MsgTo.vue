@@ -28,6 +28,7 @@ export default {
     color: #555555;
     background-color: #fff;
     text-align: center;
+    cursor: pointer;
     span{
         width: 42px;
         height: 42px;

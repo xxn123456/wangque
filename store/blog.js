@@ -3,7 +3,8 @@ export const state = () => ({
    //  左侧激活
    leftNav:0,
    //  当前栏目
-   cateNameId:null
+   cateNameId:0,
+   menu:[]
 })
 export const mutations = {
   SETSCROLLTOP(state,data) {
@@ -14,6 +15,9 @@ export const mutations = {
   },
   SETCARENAME(state,data){
     state.cateNameId = data;
+  },
+  SETMENUN(state,data){
+    state.menu = data;
   }
 }
 export const actions = {

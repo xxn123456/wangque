@@ -68,7 +68,7 @@
 </template>
 <script>
   import {
-    getCateName
+    getBlog
   } from '@/api/home.js'
   import {
     IMGURL
@@ -88,7 +88,7 @@
         page: 1,
         emty: true,
         total:null,
-        pageSize:15
+        pageSize:5
       }
     },
     computed: {
@@ -137,41 +137,36 @@
       get_Blog() {
 
 
+
+       
+
+
         let msg = qs.stringify({
           currentPage: this.page,
-          pageSize: 15,
-          categoryNum: this.cateNameId
+          pageSize: 5,
+          categoryId: this.cateNameId
         });
 
 
-        getCateName(msg).then((res) => {
+        getBlog(msg).then((res) => {
           let {
             code,
-            articleType
+            data
           } = res;
           if (code == "200") {
 
+           
 
-
-            
-
-
-
-
-            if (articleType.rows.length != 0) {
-
-               
+          
+            if (data.rows.length != 0) {
 
               
 
-              let blogs = articleType.rows[0].blogs;
+              let blogs = data.rows;
 
 
 
-              this.total=articleType.count;
-
-
-              console.log("执行",blogs);
+              this.total=data.count;
 
               this.articles = blogs.map((el, index) => {
                 let new_subTitle = el.content.length > 100 ? el.content.substring(0, 100) : el.content;
@@ -202,6 +197,9 @@
               if(this.articles.length>0){
                 this.emty = false;
               }
+
+
+              document.documentElement.scrollTop=0
 
 
 

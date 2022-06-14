@@ -9,7 +9,7 @@
       <div class="detail-mian">
         <client-only>
 
-          <mavon-editor v-model='blog.content' codeStyle="tomorrow-night-eighties" :subfield="false" :toolbarsFlag="false" :preview="true"
+          <mavon-editor v-model='blog.content' codeStyle="tomorrow-night-eighties" :subfield="false" :toolbarsFlag="false" :preview="true" 
             defaultOpen="preview" :boxShadow="false" previewBackground="#fff">
           </mavon-editor>
          </client-only>

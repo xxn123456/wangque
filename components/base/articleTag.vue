@@ -1,9 +1,7 @@
 <template>
   <div class="art-tags">
     <div class="art-tag" v-for="tag in artTags" :key="tag.index">
-      <!-- <div class="pic">
-        <span class="iconfont icon-daima"></span>
-      </div> -->
+
       <div class="des">
         {{tag.value}}
       </div>

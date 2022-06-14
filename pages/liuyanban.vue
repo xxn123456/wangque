@@ -84,7 +84,7 @@
     },
     mounted() {
       this.getScroll();
-      this.changeLeft(8);
+      this.changeLeft(10);
       
 
     },
