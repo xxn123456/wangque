@@ -33,7 +33,7 @@
                 </div>
                 <div class="other-lable">
                   <span class="iconfont icon-xihuan" style="font-size:12px;"></span>
-                  <span class="des">17</span>
+                  <span class="des">0</span>
                 </div>
 
                 <div class="other-lable">
@@ -68,7 +68,8 @@
 </template>
 <script>
   import {
-    getBlog
+    getBlogList,
+    updataBlogSee
   } from '@/api/home.js'
   import {
     IMGURL
@@ -87,8 +88,8 @@
         articles: [],
         page: 1,
         emty: true,
-        total:null,
-        pageSize:5
+        total: null,
+        pageSize: 5
       }
     },
     computed: {
@@ -128,93 +129,120 @@
 
       },
       to_detail(item) {
-        let openUrl = this.$router.resolve({
+
+       
+        let msg = qs.stringify({
+          id: item.id,
+          visitNum: parseInt(item.visitNum) + 1
+        });
+
+        updataBlogSee(msg);
+
+
+        this.get_Blog().then(()=>{
+
+         
+           let openUrl = this.$router.resolve({
           path: '/detail?id=' + item.id
         });
         window.open(openUrl.href, '_blank');
 
-      },
-      get_Blog() {
+        });
 
 
 
        
 
+      },
+      get_Blog() {
 
-        let msg = qs.stringify({
-          currentPage: this.page,
-          pageSize: 5,
-          categoryId: this.cateNameId
-        });
+        return new Promise((resolve, reject) => {
 
-
-        getBlog(msg).then((res) => {
-          let {
-            code,
-            data
-          } = res;
-          if (code == "200") {
-
-           
-
-          
-            if (data.rows.length != 0) {
-
-              
-
-              let blogs = data.rows;
+          if (this.cateNameId == 1) {
+            this.cateNameId == ""
+          };
 
 
+          let msg = qs.stringify({
+            currentPage: this.page,
+            pageSize: 5,
+            categoryId: this.cateNameId
+          });
 
-              this.total=data.count;
 
-              this.articles = blogs.map((el, index) => {
-                let new_subTitle = el.content.length > 100 ? el.content.substring(0, 100) : el.content;
+          getBlogList(msg).then((res) => {
+            let {
+              code,
+              data
+            } = res;
+            if (code == "200") {
 
-                let new_categname;
 
-                if (el.articleType == null) {
-                  new_categname = "暂未归类"
-                } else {
-                  new_categname = el.articleType.categoryName;
 
+
+              if (data.rows.length != 0) {
+
+
+
+                let blogs = data.rows;
+
+
+
+                this.total = data.count;
+
+                this.articles = blogs.map((el, index) => {
+                  let new_subTitle = el.content.length > 100 ? el.content.substring(0, 100) : el.content;
+
+                  let new_categname;
+
+                  if (el.articleType == null) {
+                    new_categname = "暂未归类"
+                  } else {
+                    new_categname = el.articleType.categoryName;
+
+                  }
+                  return {
+                    id: el.id,
+                    title: el.title,
+                    book: el.book,
+                    subTitle: new_subTitle,
+                    createdAt: el.createdAt,
+                    visitNum: el.visitNum,
+                    categoryName: new_categname
+
+                  }
+
+
+
+                });
+
+                resolve("请求成功")
+
+                if (this.articles.length > 0) {
+                  this.emty = false;
                 }
-                return {
-                  id: el.id,
-                  title: el.title,
-                  book: el.book,
-                  subTitle: new_subTitle,
-                  createdAt: el.createdAt,
-                  visitNum: el.visitNum,
-                  categoryName: new_categname
 
-                }
+
+                document.documentElement.scrollTop = 0
 
 
 
-              });
-
-              if(this.articles.length>0){
-                this.emty = false;
+              } else {
+                this.emty = true;
+                this.articles = [];
               }
 
 
-              document.documentElement.scrollTop=0
 
 
-
-            } else {
-              this.emty = true;
-              this.articles = [];
             }
 
 
-
-
-          }
-
+          })
 
         })
+
+
 
       }
     }
@@ -262,11 +290,12 @@
               height: 117px;
               margin-right: 10px;
               overflow: hidden;
-              img{
-                 width: 166px;
-                 height: 117px;
-                 border-radius: 4px;
-                
+
+              img {
+                width: 166px;
+                height: 117px;
+                border-radius: 4px;
+
               }
             }
 

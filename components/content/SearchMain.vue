@@ -9,7 +9,7 @@
         <a @click="to_detail(item)" class="to-detail">
           <div class="list-item">
             <div class="pic">
-              <img :src="item.book|handleImg" alt="">
+              <img :src="item.book" alt="">
             </div>
             <div class="cont">
               <div class="title">
@@ -49,11 +49,11 @@
     </ul>
 
 
-    <!-- <div class="page-nav">
+    <div class="page-nav">
       <div class="prev">
         <span class="go-nav">
 
-          共计：20条,第1页,页码20
+           共计：{{this.total}}条,第{{this.page}}页,页码15
 
         </span>
         <span @click="prev">上一页</span>
@@ -63,16 +63,14 @@
         下一页
 
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 <script>
   import {
     searchBlog
   } from '@/api/home.js'
-  import {
-    IMGURL
-  } from '@/utils/webSet.js'
+
   import qs from 'query-string';
 
   import {
@@ -86,20 +84,15 @@
       return {
         articles: [],
         page: 1,
-        emty: false
+        emty: true,
+        total: null,
+        pageSize: 5
       }
     },
     computed: {
       ...mapState({
         cateNameId: state => state.blog.cateNameId
       }),
-    },
-
-    filters: {
-      handleImg(val) {
-        return IMGURL + val
-      }
-
     },
     mounted() {
       this.get_Blog()
@@ -141,7 +134,8 @@
       get_Blog() {
 
 
-        let msg = qs.stringify({
+        return new Promise((resolve, reject) => {
+          let msg = qs.stringify({
           currentPage: this.page,
           pageSize: 15,
           title: this.$route.query.about
@@ -149,48 +143,55 @@
 
 
         searchBlog(msg).then((res) => {
-            let {
-              code,
-              data
-            } = res;
-            if (code == "200") {
-
-                console.log("请求的数据",data)
-
-
-
-              let blogs = data;
+          let {
+            code,
+            data
+          } = res;
+          if (code == "200") {
+            if (data.rows.length != 0) {
 
 
 
-
-              if (blogs.length != 0) {
-
-                this.articles = blogs.map((el, index) => {
-                  let new_subTitle = el.content.length > 100 ? el.content.substring(0, 100) : el.content;
-
-                  let new_categname;
-
-                  if (el.articleType == null) {
-                    new_categname = "暂未归类"
-                  } else {
-                    new_categname = el.articleType.categoryName;
-
-                  }
-                  return {
-                    id: el.id,
-                    title: el.title,
-                    book: el.book,
-                    subTitle: new_subTitle,
-                    createdAt: el.createdAt,
-                    visitNum: el.visitNum,
-                    categoryName: new_categname
-
-                  }
+              let blogs = data.rows;
 
 
 
-                });
+              this.total = data.count;
+
+              this.articles = blogs.map((el, index) => {
+                let new_subTitle = el.content.length > 100 ? el.content.substring(0, 100) : el.content;
+
+                let new_categname;
+
+                if (el.articleType == null) {
+                  new_categname = "暂未归类"
+                } else {
+                  new_categname = el.articleType.categoryName;
+
+                }
+                return {
+                  id: el.id,
+                  title: el.title,
+                  book: el.book,
+                  subTitle: new_subTitle,
+                  createdAt: el.createdAt,
+                  visitNum: el.visitNum,
+                  categoryName: new_categname
+
+                }
+
+
+
+              });
+
+              resolve("请求成功")
+
+              if (this.articles.length > 0) {
+                this.emty = false;
+              }
+
+
+              document.documentElement.scrollTop = 0
 
 
 
@@ -201,14 +202,14 @@
 
 
 
-
           }
 
 
         })
+        })
 
+      }
     }
-  }
   }
 
 </script>
@@ -251,6 +252,12 @@
               width: 166px;
               height: 117px;
               margin-right: 10px;
+              overflow: hidden;
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
             }
 
             .cont {

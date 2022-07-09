@@ -203,6 +203,8 @@
         font-size: 14px;
         color: #555555;
         font-weight: bold;
+        position: relative;
+        z-index: 10;
       }
     }
 

@@ -6,10 +6,6 @@
         <nuxt-link :to="item.leftNavUrl" :class="active==item.id?'active':''"><span
             class="iconfont Icon" :class="item.icon"></span><span>{{item.categoryName}}</span></nuxt-link>
       </li>
-
-
-
-
     </ul>
     <expend-link></expend-link>
   </div>
@@ -20,8 +16,6 @@
   import ExpendLink from '@/components/base/ExpendLink.vue'
   import {
     mapState,
-    mapActions,
-    mapGetters,
     mapMutations
   } from 'vuex'
   import {
@@ -37,26 +31,28 @@
     },
     computed: {
       ...mapState('blog', {
-        active: state => state.leftNav
+        active: state => state.leftNav,
+        menuLists: state => state.menu
       })
     },
     components: {
       ExpendLink
     },
     mounted(){
+
       this.get_CateName();
     },
     methods: {
-      ...mapActions({
-        setCateName: 'blog/setCateName',
-        setLeft:'blog/changeLeft'
-      }),
       ...mapMutations(
         {
           setMenu:'blog/SETMENUN'
         }
       ),
       get_CateName() {
+        if(this.menuLists.length!=0){
+              this.cateNames=this.menuLists;
+              return false
+        };
         let msg = qs.stringify({
           currentPage: 1,
           pageSize: 20,
@@ -68,7 +64,10 @@
             articleType
           } = res;
           if (code == "200") {
-            this.cateNames = articleType.rows
+            this.cateNames = articleType.rows;
+
+            this.setMenu(this.cateNames);
+
           }
         })
 

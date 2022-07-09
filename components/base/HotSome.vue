@@ -34,7 +34,7 @@
         let msg = qs.stringify({
           currentPage: 1,
           pageSize: 10,
-          categoryName: ""
+          recommend:1
         })
         getBlog(msg).then((res) => {
           let {

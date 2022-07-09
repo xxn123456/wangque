@@ -34,8 +34,7 @@
               day.getDate() == new Date().getDate()
           }">
 
-          <nuxt-link :to="`/date/${ formatDate(day.getFullYear(), day.getMonth() + 1, day.getDate())}`">
-            {{ day.getDate() }}</nuxt-link>
+          {{ day.getDate() }}
         </span>
       </li>
     </ul>
@@ -159,8 +158,7 @@
       margin: 0;
       overflow: hidden;
       color: #333333;
-     
-      //   margin-bottom: $sm-gap;
+      cursor: pointer;
 
       >li {
         width: 40px;

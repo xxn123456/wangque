@@ -114,8 +114,7 @@
   .home {
     min-width: 1050px;
     position: relative;
-    background-image: url('../static/layout/background.png');
-    // background-size: 100% 100%;
+  
 
     .head {
       position: fixed;
@@ -124,7 +123,7 @@
       width: 100%;
       height: 60px;
       z-index: 999;
-      background-color: rgba(248, 248, 248, 0.6);
+      background-color: #fff;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;

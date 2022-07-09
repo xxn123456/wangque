@@ -12,10 +12,28 @@
 
           <h4>版本开发计划</h4>
           <ul>
-            <li><span class="up-state">(√)</span>初始版本x,待定，----构建日期 待定</li>
-            <li><span class="up-state">(√)</span>初始版本0.3,新增包含如下功能 文章标签，日志，站点统计，----构建日期 2021-08-20</li>
-            <li><span class="up-state">(√)</span>初始版本0.2,新增包含如下功能 背景音乐，会员，评论，资源上传，----构建日期 2021-08-05</li>
-            <li><span class="up-state">(√)</span>初始版本0.1,新增包含如下功能 文章,文档归类，图片上传----构建日期 2021-04-20</li>
+            <li>
+              <span class="up-state">(√)</span>初始版本-2022-05-03
+
+              <br>
+
+              <div>
+                1 动态轮播广告 2 动态导航 3 推荐内容 4 内容详情 5 文章内容
+              </div>
+              
+              </li>
+
+              <li>
+              <span class="up-state">(√)</span>迭代版本-2022-07-04
+
+              <br>
+
+              <div>
+                1 navLeft请求复用 2 文章搜索为模糊搜索 3 增加阅读量提示 4 屏蔽日历文章搜索
+              </div>
+              
+              </li>
+            
           </ul>
 
         </div>
@@ -113,7 +131,7 @@
               list-style: none;
               margin-top: 10px;
               width: 100%;
-              height: 40px;
+              height: auto;
               line-height: 40px;
               font-size: 14px;
               color: #666666;
@@ -121,6 +139,7 @@
               .up-state {
                 padding-left: 12px;
                 padding-right: 12px;
+               
               }
 
             }

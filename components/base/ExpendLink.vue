@@ -2,8 +2,8 @@
   <div class="other-link">
     <ul>
       <li>
-        <a href="#" class="link" style=" color: #fd7515;"><span
-            class="iconfont icon-shouye Icon"></span><span>友情链接</span><span class="state">hot</span></a>
+        <a href="http://shutiaogege.top/job/#/index" class="link" style=" color: #fd7515;"><span
+            class="iconfont icon-shouye Icon"></span><span>求职简历</span><span class="state">hot</span></a>
       </li>
 
       <li>

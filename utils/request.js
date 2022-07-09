@@ -7,6 +7,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8'
 // create an axios instance
 const service = axios.create({
   baseURL: "http://shutiaogege.top:3000", // url = base url + request url
+  // baseURL: "http://localhost:3000", // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 10000 // request timeout
 })

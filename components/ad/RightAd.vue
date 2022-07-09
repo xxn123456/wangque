@@ -2,14 +2,13 @@
   <client-only>
     <div class="ad">
       <swiper :options="swiperOption" ref="mySwiper" class="my-swiper">
-              <swiper-slide class="swiper-item">
+        <swiper-slide class="swiper-item">
           <img src="@/static/layout/al.jpg" alt="">
-                </swiper-slide>
-              <swiper-slide class="swiper-item"> 
+         </swiper-slide>
+        <swiper-slide class="swiper-item">
           <img src="@/static/layout/jd.jpg" alt="">
-                </swiper-slide>
-             
-           </swiper>
+        </swiper-slide>
+        </swiper>
     </div>
   </client-only>
 </template>

@@ -19,7 +19,7 @@
 </template>
 <script>
   import AsideNav from '@/components/base/AsideNav.vue'
-  import HeadMain from '@/components/base/HeadMain.vue'
+  import HeadMain from '@/components/base/headDetail.vue'
   import AsideAd from '@/components/ad/AsideAd.vue'
   import footBar from '@/components/base/footBar.vue'
   import share from '@/components/concat/share.vue'
@@ -97,7 +97,7 @@
     min-width: 1050px;
     position: relative;
     background-image: url('../static/layout/background.png');
-    // background-size: 100% 100%;
+ 
 
     .head {
       position: fixed;
@@ -107,10 +107,7 @@
       height: 60px;
       z-index: 999;
       background: #fff;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+     
 
       .head-cont {
         width: 1050px;
