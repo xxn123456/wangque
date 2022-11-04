@@ -13,16 +13,14 @@
       <div class="foot">
          <foot-bar></foot-bar>
       </div>
-      <share></share>
     
   </div>
 </template>
 <script>
   import AsideNav from '@/components/base/AsideNav.vue'
-  import HeadMain from '@/components/base/headDetail.vue'
+  import HeadMain from '@/components/base/Banner.vue'
   import AsideAd from '@/components/ad/AsideAd.vue'
   import footBar from '@/components/base/footBar.vue'
-  import share from '@/components/concat/share.vue'
   import DetailMain from '@/components/content/ArticleDetail.vue'
   import MsgTo from '@/components/base/MsgTo.vue'
   import {
@@ -52,7 +50,6 @@
       HeadMain,
       AsideAd,
       footBar,
-      share,
       DetailMain,
       MsgTo 
     },
@@ -96,9 +93,6 @@
   .home {
     min-width: 1050px;
     position: relative;
-    background-image: url('../static/layout/background.png');
- 
-
     .head {
       position: fixed;
       top: 0;

@@ -42,20 +42,19 @@
     <div class="foot">
       <foot-bar></foot-bar>
     </div>
-    <share></share>
+
 
   </div>
 </template>
 <script>
   import AsideNav from '@/components/base/AsideNav.vue'
-  import HeadMain from '@/components/base/HeadMain.vue'
+  import HeadMain from '@/components/base/Banner.vue'
   import AsideAd from '@/components/ad/AsideAd.vue'
   import HomeSwiper from '@/components/base/HomeSwiper.vue'
   import HomeHorse from '@/components/base/HomeHorse.vue'
   import HomeAd from '@/components/ad/HomeAd.vue'
   import HomeMain from '@/components/content/Home.vue'
   import footBar from '@/components/base/footBar.vue'
-  import share from '@/components/concat/share.vue'
   import MsgTo from '@/components/base/MsgTo.vue'
   import {
     mapActions
@@ -76,7 +75,6 @@
       HomeAd,
       HomeMain,
       footBar,
-      share,
       MsgTo
     },
     created(){
@@ -84,13 +82,13 @@
     },
     mounted() {
       this.getScroll();
-      this.changeLeft(9);
+     
       
     },
     methods: {
       ...mapActions({
         setScrollTop: 'blog/setScrollTop',
-          changeLeft: 'blog/changeLeft',
+        
             setCateid:"blog/setCateName"
       }),
       getScroll() {

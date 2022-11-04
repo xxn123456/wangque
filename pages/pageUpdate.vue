@@ -11,30 +11,11 @@
         <div class="up-msg">
 
           <h4>版本开发计划</h4>
-          <ul>
-            <li>
-              <span class="up-state">(√)</span>初始版本-2022-05-03
 
-              <br>
-
-              <div>
-                1 动态轮播广告 2 动态导航 3 推荐内容 4 内容详情 5 文章内容
-              </div>
-              
-              </li>
-
-              <li>
-              <span class="up-state">(√)</span>迭代版本-2022-07-04
-
-              <br>
-
-              <div>
-                1 navLeft请求复用 2 文章搜索为模糊搜索 3 增加阅读量提示 4 屏蔽日历文章搜索
-              </div>
-              
-              </li>
+          <div>
             
-          </ul>
+          </div>
+          
 
         </div>
 
