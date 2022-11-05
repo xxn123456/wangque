@@ -1,7 +1,7 @@
 <template>
     <div class="head-cont">
          <div class="logo">
-                <div class="logo-title"><code class="logo-code"></></code>shutiuao</div>
+                <div class="logo-title">shutiuao</div>
                 <span>年轻依旧</span>
          </div>
          <div class="player">             
@@ -32,7 +32,7 @@ export default {
     .logo-title {
       font-size: 24px;
       color: #0088f5;
-      font-weight: 450;
+      font-weight: 500;
       margin-right: 15px;
       .logo-code {
         font-size: 20px;

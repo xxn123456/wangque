@@ -8,7 +8,7 @@
           <a @click="to_detail(item)" class="to-detail">
             <div class="list-item">
               <div class="pic">
-                <img :src="item.book" alt="" />
+                <img :src="item.book|handleEmtyImg" alt="" />
               </div>
               <div class="cont">
                 <div class="title">
@@ -63,19 +63,14 @@
 
       <ul class="load-list" v-else>
         <li v-for="item in articles" :key="item.index">
-          <a @click="to_detail(item)" class="to-detail">
+          <a class="to-detail">
             <div class="list-item">
               <div class="pic">
                 <!-- <img :src="item.book" alt="" /> -->
               </div>
               <div class="cont">
-                <div class="title">
-                 
-                </div>
-                <div class="subTitle">
-                
-                </div>
-              
+                <div class="title"></div>
+                <div class="subTitle"></div>
               </div>
             </div>
           </a>
@@ -98,9 +93,7 @@
 import { getBlogList, updataBlogSee } from "@/api/home.js";
 import { IMGURL } from "@/utils/webSet.js";
 import qs from "query-string";
-
 import { mapState } from "vuex";
-
 export default {
   data() {
     return {
@@ -116,13 +109,24 @@ export default {
     ...mapState({
       cateNameId: (state) => state.blog.cateNameId,
     }),
+    activeLeft() {
+      return this.$store.state.blog.leftNav;
+    },
   },
   mounted() {
     this.get_Blog();
   },
   filters: {
-    handleImg(val) {
-      return IMGURL + val;
+    handleEmtyImg(val) {
+
+      if(val=='/images/book/article-pic.png'||!val){
+
+        return require('@/static/error/404.jpeg')
+
+      }else{
+        return val
+      }
+       
     },
   },
   methods: {
@@ -136,30 +140,17 @@ export default {
       this.get_Blog();
     },
     to_detail(item) {
-      let msg = qs.stringify({
-        id: item.id,
-        visitNum: parseInt(item.visitNum) + 1,
+      let openUrl = this.$router.resolve({
+        path: "/detail?id=" + item.id,
       });
-
-      updataBlogSee(msg);
-
-      this.get_Blog().then(() => {
-        let openUrl = this.$router.resolve({
-          path: "/detail?id=" + item.id,
-        });
-        window.open(openUrl.href, "_blank");
-      });
+      window.open(openUrl.href, "_blank");
     },
     get_Blog() {
       return new Promise((resolve, reject) => {
-        if (this.cateNameId == 1) {
-          this.cateNameId == "";
-        }
-
         let msg = qs.stringify({
           currentPage: this.page,
           pageSize: 5,
-          categoryId: this.cateNameId,
+          categoryId: this.activeLeft,
         });
 
         this.load = true;
@@ -167,10 +158,9 @@ export default {
         getBlogList(msg).then((res) => {
           let { code, data } = res;
           if (code == "200") {
-
-            setTimeout(()=>{
+            setTimeout(() => {
               this.load = false;
-            },500)
+            }, 500);
             if (data.rows.length != 0) {
               let blogs = data.rows;
 
@@ -178,8 +168,8 @@ export default {
 
               this.articles = blogs.map((el, index) => {
                 let new_subTitle =
-                  el.content.length > 100
-                    ? el.content.substring(0, 100)
+                  el.content.length > 80
+                    ? el.content.substring(0, 80) + "    详情"
                     : el.content;
 
                 let new_categname;

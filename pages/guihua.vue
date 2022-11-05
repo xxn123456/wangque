@@ -76,9 +76,7 @@
       footBar,
       MsgTo
     },
-    created(){
-       this.setCateid(7);
-    },
+   
     mounted() {
       this.getScroll();
      
@@ -87,8 +85,7 @@
     methods: {
       ...mapActions({
         setScrollTop: 'blog/setScrollTop',
-          changeLeft: 'blog/changeLeft',
-           setCateid:"blog/setCateName"
+          changeLeft: 'blog/changeLeft'
       }),
       getScroll() {
         window.addEventListener('scroll', () => {

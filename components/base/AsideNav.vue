@@ -1,12 +1,23 @@
 <template>
   <div class="nav">
-    <ul>
-      <li v-for="item in cateNames" :key="item.id">
+    <ul v-if="currentPath !='/search'">
+      <li v-for="item in cateNames" :key="item.id" @click="activeNav(item.id)">
         <nuxt-link
           :to="item.leftNavUrl"
           :class="currentPath == item.leftNavUrl ? 'active' : ''"
           ><span class="iconfont Icon" :class="item.icon"></span
           ><span>{{ item.categoryName }}</span></nuxt-link
+        >
+      </li>
+    </ul>
+     <ul v-else>
+      <li>
+        <nuxt-link
+          :to="'/'"
+          class="active"
+         
+          ><span class="iconfont Icon icon-shouye"></span
+          ><span>返回主页</span></nuxt-link
         >
       </li>
     </ul>
@@ -70,28 +81,17 @@ export default {
   methods: {
     ...mapMutations({
       setMenu: "blog/SETMENUN",
-      changeLeft: "blog/changeLeft",
+      changeLeft: "blog/CHANGLEFT",
     }),
-
     initText() {
       window.addEventListener("load", function () {
         let body = document.body;
         let content = [
-          "vue",
-          "koa",
-          "js",
-          "html",
-          "css",
-          "mysql",
-          "pm2",
-          "lunix",
-          "redis",
-          "shutiao",
-          "shutiao",
-          "shutiao",
-           "shutiao",
-          "shutiao",
-          "shutiao"
+         "自由",
+         "民主",
+         "富强",
+         "和谐",
+         "友善"
         ]; //自定义内容的数组
         body.addEventListener("click", function (e) {
           let x = e.pageX;
@@ -131,6 +131,14 @@ export default {
         }
       });
     },
+
+    activeNav(id){
+
+      this.changeLeft(id)
+
+
+
+    }
   },
 };
 </script>

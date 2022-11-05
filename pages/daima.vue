@@ -51,7 +51,7 @@ import HomeAd from "@/components/ad/HomeAd.vue";
 import HomeMain from "@/components/content/Home.vue";
 import footBar from "@/components/base/footBar.vue";
 import MsgTo from "@/components/base/MsgTo.vue";
-import { mapActions } from "vuex";
+import {mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -69,17 +69,13 @@ export default {
     footBar,
     MsgTo,
   },
-  created() {
-    this.setCateid(8);
-  },
   mounted() {
     this.getScroll();
     
   },
   methods: {
     ...mapActions({
-      setScrollTop: "blog/setScrollTop",
-      setCateid: "blog/setCateName",
+      setScrollTop: "blog/setScrollTop"
     }),
     getScroll() {
       window.addEventListener("scroll", () => {

@@ -9,7 +9,7 @@
         <a @click="to_detail(item)" class="to-detail">
           <div class="list-item">
             <div class="pic">
-              <img :src="item.book" alt="">
+              <img :src="item.book|handleEmtyImg" alt="">
             </div>
             <div class="cont">
               <div class="title">
@@ -97,6 +97,22 @@
     mounted() {
       this.get_Blog()
     },
+
+    filters:{
+      handleEmtyImg(val) {
+
+      if(val=='/images/book/article-pic.png'||!val){
+
+        return require('@/static/error/404.jpeg')
+
+      }else{
+        return val
+      }
+       
+    }
+    },
+
+    
     methods: {
       prev() {
 
@@ -184,7 +200,7 @@
 
               });
 
-              resolve("请求成功")
+             
 
               if (this.articles.length > 0) {
                 this.emty = false;

@@ -70,9 +70,7 @@ export default {
     footBar,
     MsgTo,
   },
-  created() {
-    this.setCateid(1);
-  },
+ 
   mounted() {
     this.getScroll();
     this.changeLeft(1);
@@ -80,8 +78,7 @@ export default {
   methods: {
     ...mapActions({
       setScrollTop: "blog/setScrollTop",
-      changeLeft: "blog/changeLeft",
-      setCateid: "blog/setCateName",
+      changeLeft: "blog/changeLeft"
     }),
     getScroll() {
       window.addEventListener("scroll", () => {
@@ -105,8 +102,6 @@ export default {
 .home {
   min-width: 1050px;
   position: relative;
-  // background-image: url('../static/layout/background.png');
-  // background-size: 100% 100%;
 
   .head {
     position: fixed;
