@@ -73,7 +73,6 @@ export default {
  
   mounted() {
     this.getScroll();
-    this.changeLeft(1);
   },
   methods: {
     ...mapActions({

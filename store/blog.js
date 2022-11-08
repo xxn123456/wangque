@@ -1,7 +1,7 @@
 export const state = () => ({
   scrollTop: 0,
   //  左侧激活
-  leftNav: 0,
+  leftNav: 1,
   //  当前栏目
   cateNameId: 0,
   menu: []

@@ -48,7 +48,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: 'http://shutiaogege.top/jianli/favicon.ico'
+      href: '@/static/favicon.ico'
     }]
   },
   /*

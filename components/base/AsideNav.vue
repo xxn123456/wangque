@@ -27,6 +27,14 @@
         <li>
           <a href="/pageUpdate" class="link" style="color: #fd7515"
             ><span class="iconfont icon-shouye Icon"></span><span>跟新日志</span
+            ></a
+          >
+        </li>
+
+
+        <li>
+          <a href="http://shutiaogege.top/job/#/index" class="link" style="color: red"
+            ><span class="iconfont icon-shouye Icon"></span><span>个人简历</span
             ><span class="state">hot</span></a
           >
         </li>
